@@ -1,0 +1,267 @@
+@charset "utf-8"; /* margin and padding */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, img, form, applet, fieldset, legend, button, input, textarea, th, table, tr, td {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* bady */
+body {
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #333;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+body, div, fieldset, form, h1, h2, h3, h4, h5, h6, html, p {
+    -webkit-text-size-adjust: none
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+/*清楚文本框X*/
+html {
+    height: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input, select, textarea {
+    outline: none;
+    cursor: pointer;
+}
+
+/* img */
+img {
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    border: none
+}
+
+i {
+    font-style: normal;
+}
+
+/* float */
+.fl {
+    float: left !important;
+}
+
+.fr {
+    float: right !important;
+}
+
+.auto {
+    margin: 0 auto;
+}
+
+.block {
+    display: block !important;
+}
+
+.none {
+    display: none;
+}
+
+.red {
+    color: #ea4848 !important;
+}
+
+.blue {
+    color: #0034fa !important;
+}
+
+.mins {
+    height: 0px !important;
+}
+
+/* div */
+li, ul {
+    list-style: none;
+    outside: none;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    width: 100%;
+}
+
+a, b, i, span, input, select {
+    -webkit-transition: all 0s;
+    -ms-transition: all 0s;
+    font-family: "微软雅黑";
+}
+
+/* font */
+a {
+    color: #ffffff;
+    text-decoration: none;
+    -webkit-transition: all 0s;
+}
+
+a:hover, a:active, a:focus {
+    text-decoration: none;
+}
+
+.im-login {
+    width: 430px;
+    height: 330px;
+    position: fixed;
+    z-index: 9999;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 0 5px #333;
+    background: #ebf2f9 url(./images/login/login-bg.jpg) center top no-repeat;
+    display: block;
+}
+
+.login-menu {
+    width: 90px;
+    height: 30px;
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+
+.login-menu span {
+    float: left;
+    width: 30px;
+    height: 30px;
+    background-image: url(./images/wins.png);
+}
+
+.login-menu span:hover {
+    background-color: #3a95de;
+}
+
+.login-menu span:nth-child(1) {
+    background-position: left center;
+}
+
+.login-menu span:nth-child(2) {
+    background-position: -30px center;
+}
+
+.login-menu span:nth-child(3) {
+    background-position: -90px center;
+}
+
+.login-menu span:nth-child(3):hover {
+    background-color: #ea4848;
+}
+
+.login-ner {
+    margin-top: 182px;
+    float: left;
+    width: 100%;
+    height: 148px;
+}
+
+.login-left {
+    float: left;
+    width: 133px;
+    height: 148px;
+}
+
+.login-head {
+    float: left;
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    margin: 12px 11px 0 40px;
+}
+
+.login-head img {
+    width: 80px;
+    height: 80px;
+}
+
+.login-on {
+    width: 194px;
+    height: 148px;
+    float: left;
+}
+
+.login-txt {
+    float: left;
+    margin-top: 12px;
+    height: 60px;
+    width: 95%;
+}
+
+.login-txt input {
+    border: 1px solid #d1d1d1;
+    float: left;
+    height: 30px;
+    padding: 0 7px;
+    font-size: 12px;
+    width: 100%;
+}
+
+.login-txt input:nth-child(1) {
+    border-radius: 4px 4px 0 0;
+}
+
+.login-txt input:nth-child(2) {
+    border-radius: 0 0 4px 4px;
+    margin-top: -1px;
+}
+
+.login-check {
+    width: 100%;
+    float: left;
+    height: 14px;
+    line-height: 14px;
+    margin-top: 8px;
+}
+
+.login-check input {
+    width: 14px;
+    height: 14px;
+    float: left;
+}
+
+.login-check i {
+    float: left;
+    padding-left: 4px;
+}
+
+.login-right {
+    width: 93px;
+    height: 60px;
+    float: left;
+    margin-top: 12px;
+    margin-left: 5px;
+}
+
+.login-right a {
+    float: left;
+    width: 100%;
+    color: #2786e4;
+    line-height: 30px;
+    text-indent: 10px;
+}
+
+.login-but {
+    width: 100%;
+    height: 30px;
+    margin: 13px 0;
+    float: left;
+    background: #09a3dc;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: context-menu;
+}
