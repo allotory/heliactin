@@ -13,11 +13,11 @@ let win
 
 function createWindow () {
     // 创建浏览器窗口。
-    win = new BrowserWindow({width: 280, height: 680, frame: false, resizable: false});
+    win = new BrowserWindow({width: 400, height: 635, frame: false, resizable: false});
 
     // 加载应用的 index.html。
     win.loadURL(url.format({
-        pathname: path.join(__dirname, '/html/main.html'),
+        pathname: path.join(__dirname, 'index.html'),
         protocol: 'file:',
         slashes: true
     }))
