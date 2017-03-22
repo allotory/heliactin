@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> IM Login </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+
+    <link rel='stylesheet prefetch' href='css/materialdesignicons.min.css'>
+    <link rel='stylesheet prefetch' href='css/fonts.css'>
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
+<div id="hangout">
+    <div id="content">
+        <div id="head" class="style-bg">
+            <h1>IM</h1>
+            <i class="mdi mdi-arrow-right" title="login"></i>
+        </div>
+        <div class="card menu open">
+            <div class="header">
+               <img src="css/images/index.png"/>
+                <h3></h3>
+            </div>
+            <div class="content">
+                <div class="list-account">
+                    <div class="i-group">
+                        <input type="text" id="username2"><span class="bar"></span>
+                        <label>Name</label>
+                    </div>
+                    <div class="i-group">
+                        <input type="text" id="username3"><span class="bar"></span>
+                        <label>Password</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- <script>window.$ = window.jQuery = require('./js/jquery-3.1.1.min.js');</script> -->
+
+<!-- Insert this line above script imports  -->
+<script>if (typeof module === 'object') {
+    window.module = module;
+    module = undefined;
+}</script>
+
+<script src='js/jquery-3.1.1.min.js'></script>
+<script src="js/index.js"></script>
+
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
+
+</body>
+</html>

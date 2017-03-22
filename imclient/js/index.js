@@ -1,18 +1,40 @@
 
-// 登录
-$('#sname').on('click', function () {
-    $('.login').toggleClass('open');
-    $('.overlay').toggleClass('add');
-});
-
 // 默认页面
 var GLOBALSTATE = {
     route: '.list-account'
 };
 
+// 登录
+// setIndex(true);
+//
+// function setIndex(notLogin) {
+//     if (notLogin) {
+//
+//
+//
+//         $('.login').toggleClass('open');
+//         $('.overlay').toggleClass('add');
+//
+//
+//     } else {
+//         // 设置页面
+//         setRoute(GLOBALSTATE.route);
+//         $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
+//     }
+// }
+
 // 设置页面
 setRoute(GLOBALSTATE.route);
 $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
+
+
+
+$('#sname').on('click', function () {
+    $('.login').toggleClass('open');
+    $('.overlay').toggleClass('add');
+});
+
+
 
 // 遮罩层波纹效果
 $('.floater').on('click', function (event) {
@@ -120,7 +142,7 @@ function setModal(mode, $ctx) {
 // 后退按钮
 $('.mdi-arrow-left').on('click', function () {
     $('.shown').removeClass('shown');
-    setRoute('.list-text');
+    setRoute(GLOBALSTATE.route);
 });
 
 // 设置显示页面
@@ -128,12 +150,14 @@ function setRoute(route) {
     GLOBALSTATE.route = route;
     $(route).addClass('shown');
 
+    // 添加用户按钮
     if (route !== '.list-account') {
         $('#add-contact-floater').addClass('hidden');
     } else {
         $('#add-contact-floater').removeClass('hidden');
     }
 
+    // 消息按钮
     if (route !== '.list-text') {
         $('#chat-floater').addClass('hidden');
     } else {
@@ -148,6 +172,7 @@ function setRoute(route) {
         $('#content').removeClass('chat');
         $('.mdi-menu').show();
         $('.mdi-arrow-left').hide();
+        // $('.mdi-arrow-right').hide();
     }
 }
 
@@ -179,9 +204,9 @@ $('#username').on('blur', function () {
 
 // 聊天界面
 $('.list-text > ul > li').on('click', function () {
-    $('ul.chat > li').eq(1).html('<img src="'
-        + $(this).find('img').prop('src') + '"><div class="message"><p>'
-        + $(this).find('.txt').text() + '</p></div>');
+    // $('ul.chat > li').eq(1).html('<img src="'
+    //     + $(this).find('img').prop('src') + '"><div class="message"><p>'
+    //     + $(this).find('.txt').text() + '</p></div>');
 
     // timeout just for eyecandy...
     setTimeout(function () {
@@ -190,13 +215,14 @@ $('.list-text > ul > li').on('click', function () {
         $('.list-chat').addClass('shown');
         setRoute('.list-chat');
         $('.chat-input').focus();
+        GLOBALSTATE.route = '.list-text';
     }, 300);
 });
 
 $('.list-account > ul > li').on('click', function () {
-    $('ul.chat > li').eq(1).html('<img src="'
-        + $(this).find('img').prop('src') + '"><div class="message"><p>'
-        + $(this).find('.txt').text() + '</p></div>');
+    // $('ul.chat > li').eq(1).html('<img src="'
+    //     + $(this).find('img').prop('src') + '"><div class="message"><p>'
+    //     + $(this).find('.txt').text() + '</p></div>');
 
     // timeout just for eyecandy...
     setTimeout(function () {
@@ -205,16 +231,16 @@ $('.list-account > ul > li').on('click', function () {
         $('.list-chat').addClass('shown');
         setRoute('.list-chat');
         $('.chat-input').focus();
+        GLOBALSTATE.route = '.list-account';
     }, 300);
 });
 
 // 列表编辑
-$('.list-account > .list').on('click', 'i', function () {
+$('.list-account > .list ').on('click', 'i', function (event) {
     // $(this).parent().children().removeClass('active');
     // $(this).parent().find('.context').remove();
 
     // $(this).addClass('active');
-
     if ($(this).parent().parent().children().hasClass('active')) {
         $(this).parent().parent().children().removeClass('active');
         $(this).parent().parent().find('.context').remove();
@@ -244,6 +270,7 @@ $('.list-account > .list').on('click', 'i', function () {
         }
     }
 
+    event.stopPropagation();
 });
 
 // 设置导航页面

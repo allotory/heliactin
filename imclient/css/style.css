@@ -271,8 +271,13 @@ canvas {
     transition: all 0.333s ease-in-out;
 }
 
-#head .mdi-chevron-down,
-#head .mdi-chevron-up {
+#head .mdi-close {
+    margin: 0 15px 0 auto;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+#head .mdi-arrow-right {
     margin: 0 15px 0 auto;
     font-size: 1.5em;
     cursor: pointer;
@@ -366,7 +371,7 @@ canvas {
     padding: 25px 0 0 0;
     width: 100%;
     height: 200px;
-    background: url('http://s18.postimg.org/5jcy8pibd/background_03.png');
+    background: url('./images/bg/poly-bg-2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
@@ -416,6 +421,7 @@ canvas {
 .list-account.shown,
 .list-chat.shown {
     display: block;
+    background-color: white;
     animation: fade 0.444s 1 ease-out;
     animation-fill-mode: alternate;
 }
@@ -566,14 +572,19 @@ ul.list li img {
 }
 
 ul.list li .name {
-    font-weight: bold;
+    /*font-weight: bold;*/
     padding: 10px 0 10px 20px;
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
+}
+
+ul.list li .txt {
+    padding: 0 0 0 20px;
+    font-size: 0.9em;
 }
 
 ul.list li .content-container .name {
-    font-weight: bold;
+    /*font-weight: bold;*/
     padding: 0 0 0 20px;
     font-size: 1em;
 }
@@ -684,7 +695,7 @@ input.nostyle {
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
-    background: #fafafa;
+    /*background: #fafafa;*/
     color: #636363;
     width: 100%;
     border: none;
@@ -734,7 +745,7 @@ input:focus ~ .bar:after {
 }
 
 body {
-    font-family: 'Roboto';
+    font-family: 'Microsoft YaHei', 'Roboto';
     background-color: grey;
     background-size: cover;
 }
@@ -777,4 +788,145 @@ ul.nav > li.active {
 
 ul.list li.context {
     background-color: rgba(0, 153, 255, 1)
+}
+
+.conversation-start {
+    position: relative;
+    width: 100%;
+    margin-bottom: 27px;
+    text-align: center;
+}
+.conversation-start span {
+    font-size: 14px;
+    display: inline-block;
+    color: #999;
+}
+.conversation-start span:before, .conversation-start span:after {
+    position: absolute;
+    top: 10px;
+    display: inline-block;
+    width: 30%;
+    height: 1px;
+    content: '';
+    background-color: #e6e6e6;
+}
+.conversation-start span:before {
+    left: 20px;
+}
+.conversation-start span:after {
+    right: 20px;
+}
+
+
+.bubble {
+    -moz-transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);
+    -o-transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);
+    transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);
+}
+.bubble:nth-of-type(1) {
+    -moz-animation-duration: 0.15s;
+    -webkit-animation-duration: 0.15s;
+    animation-duration: 0.15s;
+}
+.bubble:nth-of-type(2) {
+    -moz-animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+}
+.bubble:nth-of-type(3) {
+    -moz-animation-duration: 0.45s;
+    -webkit-animation-duration: 0.45s;
+    animation-duration: 0.45s;
+}
+.bubble:nth-of-type(4) {
+    -moz-animation-duration: 0.6s;
+    -webkit-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+}
+.bubble:nth-of-type(5) {
+    -moz-animation-duration: 0.75s;
+    -webkit-animation-duration: 0.75s;
+    animation-duration: 0.75s;
+}
+.bubble:nth-of-type(6) {
+    -moz-animation-duration: 0.9s;
+    -webkit-animation-duration: 0.9s;
+    animation-duration: 0.9s;
+}
+.bubble:nth-of-type(7) {
+    -moz-animation-duration: 1.05s;
+    -webkit-animation-duration: 1.05s;
+    animation-duration: 1.05s;
+}
+.bubble:nth-of-type(8) {
+    -moz-animation-duration: 1.2s;
+    -webkit-animation-duration: 1.2s;
+    animation-duration: 1.2s;
+}
+.bubble:nth-of-type(9) {
+    -moz-animation-duration: 1.35s;
+    -webkit-animation-duration: 1.35s;
+    animation-duration: 1.35s;
+}
+.bubble:nth-of-type(10) {
+    -moz-animation-duration: 1.5s;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+}
+
+.bubble {
+    max-width: 70%;
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+    clear: both;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 8px;
+    padding: 10px 14px;
+    vertical-align: top;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+.bubble:before {
+    position: absolute;
+    top: 19px;
+    display: block;
+    width: 8px;
+    height: 6px;
+    content: '\00a0';
+    -moz-transform: rotate(29deg) skew(-35deg);
+    -ms-transform: rotate(29deg) skew(-35deg);
+    -webkit-transform: rotate(29deg) skew(-35deg);
+    transform: rotate(29deg) skew(-35deg);
+}
+.bubble.you {
+    float: left;
+    color: #fff;
+    background-color: #00b0ff;
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+    -moz-animation-name: slideFromLeft;
+    -webkit-animation-name: slideFromLeft;
+    animation-name: slideFromLeft;
+}
+.bubble.you:before {
+    left: -3px;
+    background-color: #00b0ff;
+}
+.bubble.me {
+    float: right;
+    color: #1a1a1a;
+    background-color: #eceff1;
+    -webkit-align-self: flex-end;
+    align-self: flex-end;
+    -moz-animation-name: slideFromRight;
+    -webkit-animation-name: slideFromRight;
+    animation-name: slideFromRight;
+}
+.bubble.me:before {
+    right: -3px;
+    background-color: #eceff1;
 }

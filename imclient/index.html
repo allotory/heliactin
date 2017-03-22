@@ -17,23 +17,25 @@
 
 <body>
 
-<style id="dynamic-styles">
-
-</style>
 <div id="hangout">
     <div id="head" class="style-bg">
         <i class="mdi mdi-arrow-left"></i>
         <i class="mdi mdi-fullscreen"></i>
         <i class="mdi mdi-menu"></i>
-        <!--<h1>John Doe</h1><i class="mdi mdi-chevron-down"></i>-->
-        <h1>John Doe</h1><i class="mdi mdi-chevron-down"></i>
+        <h1>John Doe</h1>
+        <i class="mdi mdi-close"></i>
     </div>
+
     <div id="content">
-        <div class="overlay add"></div>
+        <div class="overlay"></div>
 
         <div id="floater-position">
-            <div id="add-contact-floater" class="floater control style-bg hidden"><i class="mdi mdi-plus"></i></div>
-            <div id="chat-floater" class="floater control style-bg hidden"><i class="mdi mdi-comment-text-outline"></i>
+            <div id="add-contact-floater" class="floater control style-bg hidden">
+                <i class="mdi mdi-plus"></i>
+            </div>
+            <div id="chat-floater" class="floater control style-bg hidden">
+                <i class="mdi mdi-comment-text-outline">
+                </i>
             </div>
         </div>
 
@@ -53,7 +55,7 @@
             </div>
         </div>
 
-        <div class="card menu login open">
+        <div class="card menu login">
             <div class="header">
                 <img src="css/images/index.png"/>
                 <h3><span id="sname">ssss</span></h3>
@@ -76,7 +78,13 @@
         <div class="list-account">
             <div class="meta-bar"><input class="nostyle search-filter" type="text" placeholder="Search"/></div>
             <ul class="list mat-ripple">
-                <li><img src="css/images/avatar.jpg"><span class="name">Angie</span><i class="mdi mdi-menu-down"></i>
+                <li>
+                    <img src="css/images/avatar.jpg">
+                    <div class="content-container">
+                        <span class="name">Angie</span>
+                        <span class="txt">i get thestyle search-filtstyle se-faaail</span>
+                    </div>
+                    <i class="mdi mdi-menu-down"></i>
                 </li>
                 <li><img src="css/images/avatar.jpg"><span class="name">Larissa</span><i class="mdi mdi-menu-down"></i>
                 </li>
@@ -157,22 +165,25 @@
             <ul class="chat">
                 <li>
                     <img src="css/images/avatar.jpg">
-                    <div class="message">o hai!</div>
+                    <div class="bubble you">o hai!开源软件不都是这样的，不爽不要玩，不爽就来contribute，不爽就去自己写一个当初学MySQL的时候，卧槽？unique实际上不做任何检查？什么鬼然后我数据库大作业特别针对性增加了unqiue字段重复性的检查。</div>
+                </li>
+                <div class="conversation-start">
+                    <span>Today, 5:38 PM</span>
+                </div>
+                <li>
+                    <img src="css/images/avatar.jpg">
+                    <div class="bubble you">o hai!开检查。</div>
                 </li>
                 <li>
                     <img src="css/images/avatar.jpg">
-                    <div class="message"></div>
-                </li>
-                <li>
-                    <img src="css/images/avatar.jpg">
-                    <div class="message current">...</div>
+                    <div class="bubble me">件不都是这样的，不爽不要玩，不爽就来contribute，不爽就去自己写一个当初学MySQL的时候，卧槽？unique实际上不</div>
                 </li>
             </ul>
             <div class="meta-bar chat"><input class="nostyle chat-input" type="text" placeholder="Message..."/> <i
                     class="mdi mdi-send"></i></div>
         </div>
         <ul class="nav control mat-ripple tiny">
-            <li data-route=".list-account"><i class="mdi mdi-account-multiple"></i></li><li data-route=".list-text"><i class="mdi mdi-comment-text"></i></li><li data-route=".list-phone"><i class="mdi mdi-phone"></i></li>
+            <li data-route=".list-account"><i class="mdi mdi-comment-text"></i></li><li data-route=".list-text"><i class="mdi mdi-account-multiple"></i></li><li data-route=".list-phone"><i class="mdi mdi-star-outline"></i></li>
         </ul>
     </div>
 
