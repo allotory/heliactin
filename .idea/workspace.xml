@@ -3,7 +3,51 @@
   <component name="ChangeListManager">
     <list default="true" id="367cdb72-6ea3-4af9-9eb4-3289dcda7227" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclient/index.html" afterPath="$PROJECT_DIR$/imclient/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclient/package.json" afterPath="$PROJECT_DIR$/imclient/package.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/fonts.css" afterPath="$PROJECT_DIR$/imclient/static/css/fonts.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/fonts/0eC6fl06luXEYWpBSJvXCBJtnKITppOI_IvcXXDNrsc.woff2" afterPath="$PROJECT_DIR$/imclient/static/css/fonts/0eC6fl06luXEYWpBSJvXCBJtnKITppOI_IvcXXDNrsc.woff2" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/fonts/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2" afterPath="$PROJECT_DIR$/imclient/static/css/fonts/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/fonts/materialdesignicons-webfont.eot" afterPath="$PROJECT_DIR$/imclient/static/css/fonts/materialdesignicons-webfont.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/fonts/materialdesignicons-webfont.svg" afterPath="$PROJECT_DIR$/imclient/static/css/fonts/materialdesignicons-webfont.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/fonts/materialdesignicons-webfont.ttf" afterPath="$PROJECT_DIR$/imclient/static/css/fonts/materialdesignicons-webfont.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/fonts/materialdesignicons-webfont.woff2" afterPath="$PROJECT_DIR$/imclient/static/css/fonts/materialdesignicons-webfont.woff2" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/05.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/05.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/07.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/07.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/avatar.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/avatar.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-1.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-10.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-10.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-11.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-11.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-12.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-12.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-13.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-13.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-14.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-14.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-15.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-15.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-16.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-16.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-2.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-3.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-4.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-5.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-5.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-6.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-6.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-7.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-7.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-8.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-8.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/blurred-bg-9.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/blurred-bg-9.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/full-bg-2.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/full-bg-2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/poly-bg-1.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/poly-bg-1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/poly-bg-10.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/poly-bg-10.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/poly-bg-2.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/poly-bg-2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/poly-bg-3.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/poly-bg-3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/poly-bg-4.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/poly-bg-4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/poly-bg-5.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/poly-bg-5.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/poly-bg-6.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/poly-bg-6.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/poly-bg-7.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/poly-bg-7.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/poly-bg-8.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/poly-bg-8.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/bg/poly-bg-9.jpg" afterPath="$PROJECT_DIR$/imclient/static/css/images/bg/poly-bg-9.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/images/index.png" afterPath="$PROJECT_DIR$/imclient/static/css/images/index.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/materialdesignicons.min.css" afterPath="$PROJECT_DIR$/imclient/static/css/materialdesignicons.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/css/style.css" afterPath="$PROJECT_DIR$/imclient/static/css/style.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/index.html" afterPath="$PROJECT_DIR$/imclient/views/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/js/index.js" afterPath="$PROJECT_DIR$/imclient/static/js/index.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/js/jquery-3.1.1.min.js" afterPath="$PROJECT_DIR$/imclient/static/js/jquery-3.1.1.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/imclient/login.html" afterPath="$PROJECT_DIR$/imclient/views/login.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,45 +76,75 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imclient/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+            <state relative-caret-position="216">
+              <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imclient/controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-316">
+              <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imclient/controllers/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/imclient/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imclient/login.html">
+        <entry file="file://$PROJECT_DIR$/imclient/views/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1377">
-              <caret line="51" column="23" lean-forward="false" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+            <state relative-caret-position="351">
+              <caret line="24" column="52" lean-forward="false" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imclient/index.html">
+        <entry file="file://$PROJECT_DIR$/imclient/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4428">
-              <caret line="164" column="15" lean-forward="false" selection-start-line="164" selection-start-column="15" selection-end-line="164" selection-end-column="15" />
+            <state relative-caret-position="5751">
+              <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/imclient/js/index.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imclient/static/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+            <state relative-caret-position="837">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imclient/css/style.css">
+        <entry file="file://$PROJECT_DIR$/imclient/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="12852">
               <caret line="476" column="17" lean-forward="false" selection-start-line="476" selection-start-column="17" selection-end-line="476" selection-end-column="17" />
@@ -86,8 +160,8 @@
       <list>
         <option value="CSS File" />
         <option value="package_json" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -138,7 +212,6 @@
         <option value="$PROJECT_DIR$/imserver/index.html" />
         <option value="$PROJECT_DIR$/imserver/main.js" />
         <option value="$PROJECT_DIR$/imclient/js/main.js" />
-        <option value="$PROJECT_DIR$/imclient/package.json" />
         <option value="$PROJECT_DIR$/imclient/html/login.html" />
         <option value="$PROJECT_DIR$/imclient/html/main.html" />
         <option value="$PROJECT_DIR$/imclient/html/chat.html" />
@@ -147,6 +220,15 @@
         <option value="$PROJECT_DIR$/imclient/css/style.css" />
         <option value="$PROJECT_DIR$/imclient/js/index.js" />
         <option value="$PROJECT_DIR$/imclient/index.html" />
+        <option value="$PROJECT_DIR$/imclient/views/index.html" />
+        <option value="$PROJECT_DIR$/imclient/controller.js" />
+        <option value="$PROJECT_DIR$/imclient/package.json" />
+        <option value="$PROJECT_DIR$/imclient/controllers/login.js" />
+        <option value="$PROJECT_DIR$/imclient/templating.js" />
+        <option value="$PROJECT_DIR$/imclient/static_files.js" />
+        <option value="$PROJECT_DIR$/imclient/app.js" />
+        <option value="$PROJECT_DIR$/imclient/views/login.html" />
+        <option value="$PROJECT_DIR$/imclient/static/js/login.js" />
       </list>
     </option>
   </component>
@@ -161,6 +243,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/imclient/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -186,6 +271,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -212,10 +298,89 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heliactin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heliactin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heliactin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heliactin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heliactin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heliactin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heliactin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heliactin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -235,10 +400,12 @@
     <property name="javascript.nodejs.core.library.configured.version" value="6.10.0" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\OneDrive\code\heliactin\imclient\static" />
+      <recent name="F:\OneDrive\code\heliactin\imclient\views" />
       <recent name="F:\OneDrive\code\heliactin\imclient" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\OneDrive\code\heliactin\imclient" />
     </key>
   </component>
@@ -664,12 +831,13 @@
       <workItem from="1490101269675" duration="5909000" />
       <workItem from="1490165326025" duration="6818000" />
       <workItem from="1490185664583" duration="10351000" />
-      <workItem from="1490517509269" duration="29000" />
+      <workItem from="1490517509269" duration="1362000" />
+      <workItem from="1490532337213" duration="4640000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45200000" />
+    <option name="totallyTimeSpent" value="51173000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -682,7 +850,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1630" height="1066" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -698,7 +866,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15923172" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15923172" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -731,63 +899,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/imclient/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7857">
-          <caret line="291" column="15" lean-forward="false" selection-start-line="291" selection-start-column="8" selection-end-line="291" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5913">
-          <caret line="219" column="6" lean-forward="false" selection-start-line="219" selection-start-column="3" selection-end-line="219" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8100">
-          <caret line="300" column="45" lean-forward="false" selection-start-line="300" selection-start-column="29" selection-end-line="300" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/css/style.css">
+    <entry file="file://$PROJECT_DIR$/imclient/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2943">
           <caret line="109" column="12" lean-forward="false" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
@@ -803,7 +915,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/index.html">
+    <entry file="file://$PROJECT_DIR$/imclient/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -811,7 +923,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/js/index.js">
+    <entry file="file://$PROJECT_DIR$/imclient/static/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5427">
           <caret line="201" column="20" lean-forward="false" selection-start-line="201" selection-start-column="20" selection-end-line="201" selection-end-column="20" />
@@ -819,7 +931,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/css/style.css">
+    <entry file="file://$PROJECT_DIR$/imclient/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2943">
           <caret line="109" column="12" lean-forward="true" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
@@ -844,7 +956,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/css/style.css">
+    <entry file="file://$PROJECT_DIR$/imclient/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -870,7 +982,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/css/style.css">
+    <entry file="file://$PROJECT_DIR$/imclient/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -895,7 +1007,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/css/style.css">
+    <entry file="file://$PROJECT_DIR$/imclient/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8910">
           <caret line="330" column="31" lean-forward="false" selection-start-line="330" selection-start-column="31" selection-end-line="330" selection-end-column="31" />
@@ -919,7 +1031,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/css/style.css">
+    <entry file="file://$PROJECT_DIR$/imclient/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6534">
           <caret line="242" column="21" lean-forward="true" selection-start-line="242" selection-start-column="21" selection-end-line="242" selection-end-column="21" />
@@ -940,38 +1052,7 @@
     <entry file="file://$PROJECT_DIR$/imclient/html/login.html" />
     <entry file="file://$PROJECT_DIR$/imclient/html/main.html" />
     <entry file="file://$PROJECT_DIR$/imclient/html/chat.html" />
-    <entry file="file://$PROJECT_DIR$/imclient/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="51" column="23" lean-forward="false" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4428">
-          <caret line="164" column="15" lean-forward="false" selection-start-line="164" selection-start-column="15" selection-end-line="164" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/css/style.css">
+    <entry file="file://$PROJECT_DIR$/imclient/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12852">
           <caret line="476" column="17" lean-forward="false" selection-start-line="476" selection-start-column="17" selection-end-line="476" selection-end-column="17" />
@@ -979,10 +1060,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imclient/js/index.js">
+    <entry file="file://$PROJECT_DIR$/imclient/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        <state relative-caret-position="5751">
+          <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imclient/static/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imclient/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imclient/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imclient/templating.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="999">
+          <caret line="45" column="26" lean-forward="false" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imclient/staticFiles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="872">
+          <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imclient/controllers/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imclient/views/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="24" column="52" lean-forward="false" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imclient/static/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="2" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imclient/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-316">
+          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imclient/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
