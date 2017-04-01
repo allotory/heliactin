@@ -105,27 +105,12 @@
     }
 }
 
-/* Track */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
+    background-color: #F5F5F5;
 }
-
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-}
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    background: rgba(0, 0, 0, 0.01);
-    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
-}
-
-::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba(0, 0, 0, 0.01);
+    background-color: rgba(204, 204, 204, 0.8);
 }
 
 @media (max-width: 1000px) {
@@ -307,7 +292,7 @@ canvas {
 }
 
 #content {
-    height: 100%;
+    height: calc(100% - 50px - 55px);;
     overflow-y: auto;
     background-color: white;
     transition: all 0.444s cubic-bezier(0.7, 0, 0.3, 1);
@@ -411,7 +396,8 @@ canvas {
 .list-phone,
 .list-text,
 .list-account,
-.list-chat {
+.list-chat,
+.list-login {
     display: none;
     height: 100%;
 }
@@ -419,7 +405,8 @@ canvas {
 .list-phone.shown,
 .list-text.shown,
 .list-account.shown,
-.list-chat.shown {
+.list-chat.shown,
+.list-login.shown {
     display: block;
     background-color: white;
     animation: fade 0.444s 1 ease-out;
@@ -429,7 +416,8 @@ canvas {
 .list-phone .meta-bar,
 .list-text .meta-bar,
 .list-account .meta-bar,
-.list-chat .meta-bar {
+.list-chat .meta-bar ,
+.list-login .meta-bar {
     border-bottom: 1px solid #7daefe;
     padding: 0 0 0 25px;
     height: 40px;
@@ -441,7 +429,8 @@ canvas {
 .list-phone .meta-bar.chat,
 .list-text .meta-bar.chat,
 .list-account .meta-bar.chat,
-.list-chat .meta-bar.chat {
+.list-chat .meta-bar.chat ,
+.list-login .meta-bar.chat {
     border-top: 1px solid lightgrey;
     background: white;
     border-bottom: none;
@@ -453,67 +442,105 @@ canvas {
     animation: fade-up 0.444s 1 ease-out;
 }
 
-ul.chat {
-    width: 100%;
-}
 
-ul.chat li {
-    padding: 15px 25px 15px 25px;
-    display: inline-flex;
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    transition: all 0.18s ease-in;
+ul.messages {
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    list-style: none;
+    border: 2px solid #fff;
+    border-left: none;
+    border-right: none;
+}
+ul.messages li {
+    margin: 10px;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+ul.messages li:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+ul.messages li .head {
+    font-size: 13px;
+}
+ul.messages li .name {
+    font-weight: 600;
     position: relative;
 }
-
-ul.chat li img {
-    height: 42px;
-    width: 42px;
-    border-radius: 100%;
-}
-
-ul.chat li .message {
-    padding: 10px 10px 10px 20px;
-    font-size: 0.9em;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    min-width: 50%;
-    position: relative;
-    background: white;
-    border-radius: 5px;
-}
-
-ul.chat li .message:after {
+ul.messages li .name:after {
     content: '';
     position: absolute;
-    border-style: solid;
-    border-width: 8px 8px 8px 0;
-    border-color: transparent white;
-    display: block;
-    width: 0;
-    z-index: 1;
-    left: -8px;
-    top: 3px;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    top: 6px;
+}
+ul.messages li .time {
+    color: #b7bccf;
+}
+ul.messages li .message {
+    margin-top: 20px;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 6px;
+    padding: 10px;
+    line-height: 25px;
+    max-width: 70%;
+    min-width: 50px;
+    word-wrap: break-word;
+    position: relative;
+}
+ul.messages li .message:before {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: -12px;
+    border-bottom: 12px solid #00b0ff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+ul.messages li.friend-with-a-SVAGina .name {
+    margin-left: 20px;
+}
+ul.messages li.friend-with-a-SVAGina .name:after {
+    background-color: #00b0ff;
+    left: -20px;
+    top: 6px;
+}
+ul.messages li.friend-with-a-SVAGina .message {
+    background-color: #00b0ff;
+    float: left;
+}
+ul.messages li.friend-with-a-SVAGina .message:before {
+    left: 16px;
+    border-bottom-color: #00b0ff;
+}
+ul.messages li.i .head {
+    text-align: right;
+}
+ul.messages li.i .name {
+    margin-right: 20px;
+}
+ul.messages li.i .name:after {
+    background-color: #62bf6e;
+    right: -20px;
+    top: 6px;
+}
+ul.messages li.i .message {
+    background-color: #62bf6e;
+    float: right;
+}
+ul.messages li.i .message:before {
+    right: 16px;
+    border-bottom-color: #62bf6e;
 }
 
-ul.chat li:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-ul.chat li:nth-child(even) .message {
-    background-color: #f5f5f5;
-}
-
-ul.chat li:nth-child(even) .message:after {
-    right: -8px;
-    left: auto;
-    border-width: 8px 0 8px 8px;
-    border-color: transparent #f5f5f5;
-}
 
 ul.list {
     width: 100%;
+    height: calc(100% - 40px - 50px);
     padding-bottom: 130px;
 }
 
@@ -790,6 +817,8 @@ ul.list li.context {
     background-color: rgba(0, 153, 255, 1)
 }
 
+
+/*时间分隔线*/
 .conversation-start {
     position: relative;
     width: 100%;
@@ -815,118 +844,4 @@ ul.list li.context {
 }
 .conversation-start span:after {
     right: 20px;
-}
-
-
-.bubble {
-    -moz-transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);
-    -o-transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);
-    -webkit-transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);
-    transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);
-}
-.bubble:nth-of-type(1) {
-    -moz-animation-duration: 0.15s;
-    -webkit-animation-duration: 0.15s;
-    animation-duration: 0.15s;
-}
-.bubble:nth-of-type(2) {
-    -moz-animation-duration: 0.3s;
-    -webkit-animation-duration: 0.3s;
-    animation-duration: 0.3s;
-}
-.bubble:nth-of-type(3) {
-    -moz-animation-duration: 0.45s;
-    -webkit-animation-duration: 0.45s;
-    animation-duration: 0.45s;
-}
-.bubble:nth-of-type(4) {
-    -moz-animation-duration: 0.6s;
-    -webkit-animation-duration: 0.6s;
-    animation-duration: 0.6s;
-}
-.bubble:nth-of-type(5) {
-    -moz-animation-duration: 0.75s;
-    -webkit-animation-duration: 0.75s;
-    animation-duration: 0.75s;
-}
-.bubble:nth-of-type(6) {
-    -moz-animation-duration: 0.9s;
-    -webkit-animation-duration: 0.9s;
-    animation-duration: 0.9s;
-}
-.bubble:nth-of-type(7) {
-    -moz-animation-duration: 1.05s;
-    -webkit-animation-duration: 1.05s;
-    animation-duration: 1.05s;
-}
-.bubble:nth-of-type(8) {
-    -moz-animation-duration: 1.2s;
-    -webkit-animation-duration: 1.2s;
-    animation-duration: 1.2s;
-}
-.bubble:nth-of-type(9) {
-    -moz-animation-duration: 1.35s;
-    -webkit-animation-duration: 1.35s;
-    animation-duration: 1.35s;
-}
-.bubble:nth-of-type(10) {
-    -moz-animation-duration: 1.5s;
-    -webkit-animation-duration: 1.5s;
-    animation-duration: 1.5s;
-}
-
-.bubble {
-    max-width: 70%;
-    font-size: 14px;
-    position: relative;
-    display: inline-block;
-    clear: both;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 8px;
-    padding: 10px 14px;
-    vertical-align: top;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-}
-.bubble:before {
-    position: absolute;
-    top: 19px;
-    display: block;
-    width: 8px;
-    height: 6px;
-    content: '\00a0';
-    -moz-transform: rotate(29deg) skew(-35deg);
-    -ms-transform: rotate(29deg) skew(-35deg);
-    -webkit-transform: rotate(29deg) skew(-35deg);
-    transform: rotate(29deg) skew(-35deg);
-}
-.bubble.you {
-    float: left;
-    color: #fff;
-    background-color: #00b0ff;
-    -webkit-align-self: flex-start;
-    align-self: flex-start;
-    -moz-animation-name: slideFromLeft;
-    -webkit-animation-name: slideFromLeft;
-    animation-name: slideFromLeft;
-}
-.bubble.you:before {
-    left: -3px;
-    background-color: #00b0ff;
-}
-.bubble.me {
-    float: right;
-    color: #1a1a1a;
-    background-color: #eceff1;
-    -webkit-align-self: flex-end;
-    align-self: flex-end;
-    -moz-animation-name: slideFromRight;
-    -webkit-animation-name: slideFromRight;
-    animation-name: slideFromRight;
-}
-.bubble.me:before {
-    right: -3px;
-    background-color: #eceff1;
 }

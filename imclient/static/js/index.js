@@ -1,7 +1,7 @@
 
 // 默认页面
 var GLOBALSTATE = {
-    route: '.list-account'
+    route: '.list-login'
 };
 
 // 登录
@@ -29,9 +29,11 @@ $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
 
 
 
-$('#sname').on('click', function () {
-    $('.login').toggleClass('open');
-    $('.overlay').toggleClass('add');
+$('#a_login').on('click', function () {
+    GLOBALSTATE.route = '.list-account';
+    setRoute(GLOBALSTATE.route);
+    $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
+    $('.list-login').css('display', 'none');
 });
 
 

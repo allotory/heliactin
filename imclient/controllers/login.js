@@ -6,7 +6,7 @@
 'use strict'
 
 var func_index = async (ctx, next) => {
-    ctx.render('login.html', {
+    ctx.render('index.html', {
         title: 'login'
     });
 };

@@ -6,16 +6,15 @@
 'use strict'
 
 const Koa = require('koa');
-
 const bodyParser = require('koa-bodyparser');
+const WebSocket = require('ws');
 
 const controller = require('./controller');
-
 const templating = require('./templating');
-
-let staticFiles = require('./staticFiles');
+const staticFiles = require('./staticFiles');
 
 const app = new Koa();
+const WebSocketServer = WebSocket.Server;
 
 // log request URL:
 app.use(async (ctx, next) => {
@@ -39,5 +38,22 @@ app.use(staticFiles('/static/', __dirname + '/static'));
 // add controllers
 app.use(controller());
 
-app.listen(3000);
+let server = app.listen(3000);
+
+let wss = new WebSocketServer({
+    server: server
+});
+
+wss.on('connection', (ws) => {
+    console.log(`[SERVER] connection()`);
+    ws.on('message', (message) => {
+        console.log(`[SERVER] received: ${message}`);
+        ws.send(`ECHO: ${message}`, (err) => {
+            if (err) {
+                console.log(`[SERVER] error: ${err}`);
+            }
+        });
+    })
+});
+
 console.log('server started at port 3000.');
