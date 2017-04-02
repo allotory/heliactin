@@ -22,7 +22,7 @@
         <i class="mdi mdi-arrow-left"></i>
         <i class="mdi mdi-fullscreen"></i>
         <i class="mdi mdi-menu"></i>
-        <h1>John Doe</h1>
+        <h1 class="title">John Doe</h1>
         <i class="mdi mdi-close"></i>
     </div>
 
@@ -74,7 +74,6 @@
             </div>
         </div>
 
-
         <div class="list-account">
             <div class="meta-bar"><input class="nostyle search-filter" type="text" placeholder="Search"/></div>
             <ul class="list mat-ripple">
@@ -86,7 +85,7 @@
                     </div>
                     <i class="mdi mdi-menu-down"></i>
                 </li>
-                <li><img src="../static/css/images/avatar.jpg"><span class="name">Larissa</span><i class="mdi mdi-menu-down"></i>
+                <li><img class="img-grey" src="../static/css/images/avatar.jpg"><span class="name">Larissa</span><i class="mdi mdi-menu-down"></i>
                 </li>
                 <li><img src="../static/css/images/avatar.jpg"><span class="name">Hank</span><i class="mdi mdi-menu-down"></i>
                 </li>
@@ -171,7 +170,12 @@
                     </div>
                     <div class="message">ПриветПриве тПриветПр иветПриве тПриветПрив етПрив етПри вет!</div>
                 </li>
-                <li class="friend-with-a-SVAGina">
+
+                <div class="conversation-start">
+                    <span>Today, 5:38 PM</span>
+                </div>
+
+                <li class="friend">
                     <div class="head">
                         <span class="name">Юния</span>
                         <span class="time">10:15 AM, Today</span>
@@ -185,7 +189,7 @@
                     </div>
                     <div class="message">)</div>
                 </li>
-                <li class="friend-with-a-SVAGina">
+                <li class="friend">
                     <div class="head">
                         <span class="name">Юния</span>
                         <span class="time">10:15 AM, Today</span>
@@ -227,7 +231,7 @@
                     </div>
                     <div class="message">М не счастья..</div>
                 </li>
-                <li class="friend-with-a-SVAGina">
+                <li class="friend">
                     <div class="head">
                         <span class="name">Юния</span>
                         <span class="time">10:15 AM, Today</span>
@@ -237,28 +241,28 @@
                 <div style="clear:both;"></div>
             </ul>
 
-
-
-
-
             <div class="meta-bar chat"><input class="nostyle chat-input" type="text" placeholder="Message..."/> <i
                     class="mdi mdi-send"></i></div>
         </div>
 
         <div class="list-login">
             <!--<a id="a_login" href="#">login</a>-->
-            <div class="i-group">
-                <input type="text" id="usern" name="username"><span class="bar"></span>
-                <label>Name</label>
-            </div>
-            <div class="i-group">
-                <input type="text" id="password" name="password"><span class="bar"></span>
-                <label>Password</label>
-            </div>
+            <div class="content login-text">
+                <div class="i-group">
+                    <input type="text" name="username"><span class="bar"></span>
+                    <label>用户名</label>
+                </div>
+                <div class="i-group">
+                    <input type="password" name="password"><span class="bar"></span>
+                    <label>密码</label>
+                </div>
 
-            <div class="btn-container">
-                <span class="btn cancel">Cancel</span>
-                <span class="btn save" id="a_login">Save</span>
+                <button type="button" id="a_login" class="button login-btn">登 录</button>
+
+                <div class="reset">
+                    <span class="float-left">找回密码</span>
+                    <span class="float-right">注册账号</span>
+                </div>
             </div>
         </div>
 

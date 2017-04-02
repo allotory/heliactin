@@ -25,13 +25,20 @@ var GLOBALSTATE = {
 
 // 设置页面
 setRoute(GLOBALSTATE.route);
+initLogin();
 $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
 
 
+function initLogin() {
+    $('.mdi-menu').hide();
+    $('.nav').hide();
+    $('.title').text('IM');
+}
 
 $('#a_login').on('click', function () {
     GLOBALSTATE.route = '.list-account';
     setRoute(GLOBALSTATE.route);
+    $('.nav').show();
     $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
     $('.list-login').css('display', 'none');
 });

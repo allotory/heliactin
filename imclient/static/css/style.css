@@ -231,7 +231,7 @@ canvas {
 
 .floater {
     cursor: pointer;
-    padding: 17px 20px 17px 20px;
+    padding: 7px 10px 7px 10px;
     border-radius: 100%;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     transition: all 0.333s ease-in-out;
@@ -442,7 +442,7 @@ canvas {
     animation: fade-up 0.444s 1 ease-out;
 }
 
-
+/* 消息 */
 ul.messages {
     height: calc(100% - 40px);
     overflow-y: auto;
@@ -501,19 +501,19 @@ ul.messages li .message:before {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
 }
-ul.messages li.friend-with-a-SVAGina .name {
+ul.messages li.friend .name {
     margin-left: 20px;
 }
-ul.messages li.friend-with-a-SVAGina .name:after {
+ul.messages li.friend .name:after {
     background-color: #00b0ff;
     left: -20px;
     top: 6px;
 }
-ul.messages li.friend-with-a-SVAGina .message {
+ul.messages li.friend .message {
     background-color: #00b0ff;
     float: left;
 }
-ul.messages li.friend-with-a-SVAGina .message:before {
+ul.messages li.friend .message:before {
     left: 16px;
     border-bottom-color: #00b0ff;
 }
@@ -596,6 +596,10 @@ ul.list li img {
     height: 42px;
     width: 42px;
     border-radius: 100%;
+}
+
+.img-grey {
+    -webkit-filter: grayscale(1); /* Webkit */
 }
 
 ul.list li .name {
@@ -709,7 +713,7 @@ input.nostyle {
 
 .i-group label {
     color: #999;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: normal;
     position: absolute;
     pointer-events: none;
@@ -818,7 +822,7 @@ ul.list li.context {
 }
 
 
-/*时间分隔线*/
+/* 时间分隔线 */
 .conversation-start {
     position: relative;
     width: 100%;
@@ -845,3 +849,40 @@ ul.list li.context {
 .conversation-start span:after {
     right: 20px;
 }
+
+.list-login .login-text {
+    padding: 30px 20px 0;
+}
+
+/* 登录按钮 */
+.button {
+    width: 100%;
+    background-color: rgba(0, 153, 255, 1);
+    border: none;
+    border-radius: 2px;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/* 找回密码 */
+.reset {
+    font-size: 14px;
+    color: rgba(0, 153, 255, 1);
+    margin-top: 250px;
+}
+
+.reset .float-right, .float-left {
+    cursor: pointer;
+}
+
+.reset .float-right {
+    float: right;
+}
+
+
