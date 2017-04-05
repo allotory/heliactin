@@ -6,8 +6,9 @@
 'use strict'
 
 var func_index = async (ctx, next) => {
+    console.log(ctx.state.username + '000000');
     ctx.render('index.html', {
-        title: 'login'
+        title: 'Login'
     });
 };
 
@@ -16,15 +17,16 @@ var func_signIn = async (ctx, next) => {
     var password = ctx.request.body.password || '';
     console.log(`signin with username: ${username}, password: ${password}`);
 
-    if (username === 'ellery' && password === '333333') {
+    if (username === 'e' && password === 'e') {
         ctx.render('index.html', {
-            title: 'Sign In OK',
-            name: 'Mr Node'
+            title: 'Index',
+            name: 'Mr Noee'
         });
     } else {
         ctx.response.body = '<h1>login fail!</h1><br><a href="/">try again</a>';
     }
 };
+
 
 module.exports = {
     'GET /': func_index,

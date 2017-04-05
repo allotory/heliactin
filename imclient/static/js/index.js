@@ -1,27 +1,9 @@
+'user strict'
 
 // 默认页面
 var GLOBALSTATE = {
     route: '.list-login'
 };
-
-// 登录
-// setIndex(true);
-//
-// function setIndex(notLogin) {
-//     if (notLogin) {
-//
-//
-//
-//         $('.login').toggleClass('open');
-//         $('.overlay').toggleClass('add');
-//
-//
-//     } else {
-//         // 设置页面
-//         setRoute(GLOBALSTATE.route);
-//         $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
-//     }
-// }
 
 // 设置页面
 setRoute(GLOBALSTATE.route);
@@ -35,58 +17,59 @@ function initLogin() {
     $('.title').text('IM');
 }
 
-$('#a_login').on('click', function () {
-    GLOBALSTATE.route = '.list-account';
-    setRoute(GLOBALSTATE.route);
-    $('.nav').show();
-    $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
-    $('.list-login').css('display', 'none');
+
+
+
+
+var socket = io.connect('localhost:3000'); //连接服务器
+socket.on('welcome', function (data) { //监听事件，获取服务器发送的消息
+    console.log(data.text); //输出消息
 });
 
 
+$('#signIn').on('click', function () {
 
-// 遮罩层波纹效果
-$('.floater').on('click', function (event) {
-    var $ripple = $('<div class="ripple tiny bright"></div>');
-    var x = event.offsetX;
-    var y = event.offsetY;
-    var $me = $(this);
-
-    $ripple.css({
-        top: y,
-        left: x
-    });
-    $(this).append($ripple);
-
-    setTimeout(function () {
-        $me.find('.ripple').remove();
-    }, 530)
-
-});
-
-// 页面点击波纹效果
-$('ul.mat-ripple').on('click', 'li', function (event) {
-    if ($(this).parent().hasClass('tiny')) {
-        var $ripple = $('<div class="ripple tiny"></div>');
-    } else {
-        var $ripple = $('<div class="ripple"></div>');
+    var username = $('#username').val();
+    if (username === '') {
+        alert('require username');
+        return false;
     }
-    var x = event.offsetX;
-    var y = event.offsetY;
 
-    var $me = $(this);
+    //在服务器接收消息之后，以回调函数返回数据给客户端告诉昵称是否存在
+    socket.emit('name', username, function (data) {
+        if (data) { //昵称不存在列表中，昵称添加成功
+            console.log('successfully'); //设置昵称成功
 
-    $ripple.css({
-        top: y,
-        left: x
+            GLOBALSTATE.route = '.list-account';
+            setRoute(GLOBALSTATE.route);
+            $('.nav').show();
+            $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
+            $('.list-login').css('display', 'none');
+        }
+        else { //昵称存在于列表
+            alert('昵称已存在');
+        }
     });
+});;
 
-    $(this).append($ripple);
+//接收服务器广播的昵称列表，并显示在页面上
+socket.on('usernames', function (data) {
+    let html = '';
 
-    setTimeout(function () {
-        $me.find('.ripple').remove();
-    }, 530)
+    for (var i = 0; i < data.length; i++) {
+        html += '<li>' +
+            '<img src="../static/css/images/avatar.jpg">' +
+                '<div class="content-container">' +
+                '<span class="name">'+ data[i] + '</span>' +
+                '<span class="txt">i get the style search-filtstyle se-faaail</span>' +
+            '</div>' +
+            '<i class="mdi mdi-menu-down"></i>' +
+        '</li>';
+    }
+    $('#friendsList').html(html);
 });
+
+
 
 // Set Name
 // setName(localStorage.getItem('username'));

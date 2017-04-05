@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Material Design Hangouts app for devwarsweek2</title>
+    <title> IM - {{ title }} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 
@@ -48,35 +48,17 @@
             <div class="content">
 
                 <div class="i-group">
-                    <input type="text" id="username"><span class="bar"></span>
+                    <input type="text" id="name"><span class="bar"></span>
                     <label>Name</label>
                 </div>
                 <br/>
             </div>
         </div>
 
-        <div class="card menu login">
-            <div class="header">
-                <img src="../static/css/images/index.png"/>
-                <h3><span id="sname">ssss</span></h3>
-            </div>
-            <div class="content">
-
-                <div class="i-group">
-                    <input type="text" id="username2"><span class="bar"></span>
-                    <label>Name</label>
-                </div>
-                <div class="i-group">
-                    <input type="text" id="username3"><span class="bar"></span>
-                    <label>Password</label>
-                </div>
-                <br/>
-            </div>
-        </div>
 
         <div class="list-account">
             <div class="meta-bar"><input class="nostyle search-filter" type="text" placeholder="Search"/></div>
-            <ul class="list mat-ripple">
+            <ul class="list mat-ripple" id="friendsList">
                 <li>
                     <img src="../static/css/images/avatar.jpg">
                     <div class="content-container">
@@ -248,21 +230,23 @@
         <div class="list-login">
             <!--<a id="a_login" href="#">login</a>-->
             <div class="content login-text">
-                <div class="i-group">
-                    <input type="text" name="username"><span class="bar"></span>
-                    <label>用户名</label>
-                </div>
-                <div class="i-group">
-                    <input type="password" name="password"><span class="bar"></span>
-                    <label>密码</label>
-                </div>
+                <form id="loginForm" action="signin" method="post">
+                    <div class="i-group">
+                        <input type="text" id="username" name="username"><span class="bar"></span>
+                        <label>用户名</label>
+                    </div>
+                    <div class="i-group">
+                        <input type="password" id="password" name="password"><span class="bar"></span>
+                        <label>密码</label>
+                    </div>
 
-                <button type="button" id="a_login" class="button login-btn">登 录</button>
+                    <button type="button" id="signIn" class="button login-btn">登 录</button>
 
-                <div class="reset">
-                    <span class="float-left">找回密码</span>
-                    <span class="float-right">注册账号</span>
-                </div>
+                    <div class="reset">
+                        <span class="float-left">找回密码</span>
+                        <span class="float-right">注册账号</span>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -294,8 +278,12 @@
     module = undefined;
 }</script>
 
+<!--如果客户端和服务器在同一服务器上，将会自动提供socket.io客户端的库-->
+<script src="/socket.io/socket.io.js"></script>
+
 <script src='../static/js/jquery-3.1.1.min.js'></script>
 <script src="../static/js/index.js"></script>
+<script src="../static/js/animation.js"></script>
 
 <!-- Insert this line after script imports -->
 <script>if (window.module) module = window.module;</script>
