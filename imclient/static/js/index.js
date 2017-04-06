@@ -57,7 +57,7 @@ socket.on('usernames', function (data) {
     let html = '';
 
     for (var i = 0; i < data.length; i++) {
-        html += '<li>' +
+        html += '<li onclick="listAccountChat()">' +
             '<img src="../static/css/images/avatar.jpg">' +
                 '<div class="content-container">' +
                 '<span class="name">'+ data[i] + '</span>' +
@@ -69,6 +69,72 @@ socket.on('usernames', function (data) {
     $('#friendsList').html(html);
 });
 
+// 显示聊天页面
+function listAccountChat() {
+    setTimeout(function () {
+        $('.shown').removeClass('shown');
+
+        $('.list-chat').addClass('shown');
+        setRoute('.list-chat');
+        $('.chat-input').focus();
+        GLOBALSTATE.route = '.list-account';
+
+        let msg = $('#chatting');
+        msg.scrollTop(msg[0].scrollHeight);
+
+    }, 300);
+}
+
+// 发送消息
+$('.mdi-send').on('click', function () {
+    if ($('.chat-input').val() === '') {
+        alert('message required');
+    }
+
+    socket.emit('message', $('.chat-input').val());
+
+    let now = new Date();
+    let amPm = now.getHours() > 12? 'PM': 'AM';
+    let message =
+        '<li class="i">' +
+            '<div class="head">' +
+            '<span class="time">' + now.getHours() + ':' + now.getMinutes() + ' ' + amPm + ', Today </span>' +
+        '<span class="name">me</span>' +
+            '</div>' +
+            '<div class="message">' + $('.chat-input').val() + '</div>' +
+        '</li>';
+
+    $('#chatting').append(message);
+    $('.chat-input').val('');
+
+    let msg = $('#chatting');
+    msg.scrollTop(msg[0].scrollHeight);
+});
+
+// 回车发送
+$('.chat-input').on('keyup', function (event) {
+    event.preventDefault();
+    if (event.which === 13) {
+        $('.mdi-send').trigger('click');
+    }
+});
+
+socket.on('clientReceiveMessage', function(data) {
+    let now = new Date();
+    let amPm = now.getHours() > 12? 'PM': 'AM';
+    let message =
+        '<li class="friend">' +
+        '<div class="head">' +
+        '<span class="name">' + data.sender + ' </span>' +
+        '<span class="time">' + now.getHours() + ':' + now.getMinutes() + ' ' + amPm + ', Today </span>' +
+        '</div>' +
+        '<div class="message">' + data.message + '</div>' +
+        '</li>';
+
+    $('#chatting').append(message);
+    let msg = $('#chatting');
+    msg.scrollTop(msg[0].scrollHeight);
+});
 
 
 // Set Name
@@ -179,19 +245,6 @@ $('#username').on('blur', function () {
 
 });
 
-// 发送消息
-// $('.mdi-send').on('click', function () {
-//     var $chatmessage = '<p>' + $('.chat-input').val() + '</p>';
-//     $('ul.chat > li > .current').append($chatmessage);
-//     $('.chat-input').val('');
-// });
-
-// $('.chat-input').on('keyup', function (event) {
-//     event.preventDefault();
-//     if (event.which === 13) {
-//         $('.mdi-send').trigger('click');
-//     }
-// });
 
 
 // 聊天界面
@@ -226,6 +279,7 @@ $('.list-account > ul > li').on('click', function () {
         GLOBALSTATE.route = '.list-account';
     }, 300);
 });
+
 
 // 列表编辑
 $('.list-account > .list ').on('click', 'i', function (event) {

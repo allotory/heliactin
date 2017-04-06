@@ -63,6 +63,12 @@ io.on('connection', function (socket) {
         }
 
     });
+
+    //服务器监听客户端发送的消息，并把消息广播给所有连接服务器的客户端
+    socket.on('message', function (data) {
+        socket.broadcast.emit('clientReceiveMessage', {sender: socket.username, message: data});
+    });
+
     //当有客户端断开连接时，重新发送昵称列表给所有在线客户端，实现实时更新
     socket.on('disconnect', function () {
         if (!socket.username) return;
