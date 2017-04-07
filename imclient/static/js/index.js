@@ -69,7 +69,7 @@ socket.on('usernames', function (data) {
     $('#friendsList').html(html);
 });
 
-// 显示聊天页面
+// 好友列表 => 聊天页面
 function listAccountChat() {
     setTimeout(function () {
         $('.shown').removeClass('shown');
