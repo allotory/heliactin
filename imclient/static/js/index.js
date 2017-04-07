@@ -167,6 +167,20 @@ socket.on('clientReceiveMessage', function(data) {
 //     $('#dynamic-styles').text('.dialog h3 {color: ' + x + '} .i-group input:focus ~ label,.i-group input.used ~ label {color: ' + x + ';} .bar:before,.bar:after {background:' + x + '} .i-group label {color: ' + x + ';} ul.nav > li.active {color:' + x + '} .style-tx {color: ' + x + ';}.style-bg {background:' + x + ';color: white;}@keyframes navgrow {100% {width: 100%;background-color: ' + x + ';}} ul.list li.context {background-color: ' + x + '}');
 // }
 
+// 登录 => 注册
+$('#registerLink').on('click', function() {
+    $('#confirmPassGroup').css('display', 'block');
+    $('#registerLink').css('display', 'none');
+    $('#loginLink').css('display', 'inline-block');
+});
+
+// 注册 => 登录
+$('#loginLink').on('click', function() {
+    $('#confirmPassGroup').css('display', 'none');
+    $('#registerLink').css('display', 'inline-block');
+    $('#loginLink').css('display', 'none');
+});
+
 // 关闭 modal
 function closeModal() {
     $('#new-user').val('');

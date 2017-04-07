@@ -199,7 +199,7 @@
         <div class="list-login">
             <!--<a id="a_login" href="#">login</a>-->
             <div class="content login-text">
-                <form id="loginForm" action="signin" method="post">
+                <form id="loginForm" action="signIn" method="post">
                     <div class="i-group">
                         <input type="text" id="username" name="username"><span class="bar"></span>
                         <label>用户名</label>
@@ -208,12 +208,17 @@
                         <input type="password" id="password" name="password"><span class="bar"></span>
                         <label>密码</label>
                     </div>
+                    <div class="i-group" id="confirmPassGroup" style="display: none;">
+                        <input type="password" id="confirmPassword" name="confirmPassword"><span class="bar"></span>
+                        <label>确认密码</label>
+                    </div>
 
                     <button type="button" id="signIn" class="button login-btn">登 录</button>
 
                     <div class="reset">
                         <span class="float-left">找回密码</span>
-                        <span class="float-right">注册账号</span>
+                        <span class="float-right" id="registerLink">注册账号</span>
+                        <span class="float-right" id="loginLink" style="display: none">登录账号</span>
                     </div>
                 </form>
             </div>
