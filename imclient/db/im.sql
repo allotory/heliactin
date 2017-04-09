@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS groups (
 /*
  * 组成员表
  */
-CREATE TABLE IF NOT EXISTS groups (
+CREATE TABLE IF NOT EXISTS groups_member (
     id int unsigned NOT NULL AUTO_INCREMENT,	    /* 组成员表 ID（唯一标识） */
     group_id int NOT NULL,		                    /* 组 ID */
     group_member int NOT NULL,			              /* 组签名 */

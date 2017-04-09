@@ -172,6 +172,7 @@ $('#registerLink').on('click', function() {
     $('#confirmPassGroup').css('display', 'block');
     $('#registerLink').css('display', 'none');
     $('#loginLink').css('display', 'inline-block');
+    $('.reset').css('margin-top', '163px');
 });
 
 // 注册 => 登录
@@ -179,6 +180,7 @@ $('#loginLink').on('click', function() {
     $('#confirmPassGroup').css('display', 'none');
     $('#registerLink').css('display', 'inline-block');
     $('#loginLink').css('display', 'none');
+    $('.reset').css('margin-top', '250px');
 });
 
 // 关闭 modal
