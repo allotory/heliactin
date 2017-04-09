@@ -10,14 +10,54 @@ setRoute(GLOBALSTATE.route);
 initLogin();
 $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
 
-
+// 显示登录界面
 function initLogin() {
     $('.mdi-menu').hide();
     $('.nav').hide();
     $('.title').text('IM');
 }
 
+// 注册新用户
+$('#signUp').on('click', function() {
+    let username = $('#username').val();
+    let password = $('#password').val();
+    let confirmPassword = $('#confirmPassword').val();
 
+    if (username === '') {
+        alert('用户名不能为空');
+    } else if (password === '' || confirmPassword === '') {
+        alert('密码和确认密码不能为空')
+    } else if (password !== confirmPassword) {
+        alert('密码和确认密码应一致');
+    }
+
+    $.ajax({
+        url: '/signup',
+        type: 'POST',
+        async: true,
+        data: {
+            username: username,
+            password: password
+        },
+        success: function (data, textStatus, jqXHR) {
+            console.log(data);
+            if (data === 'success') {
+                alert('注册成功，请重新登录')
+            } else if (data === 'failure') {
+                alert('注册失败，请稍后重试');
+            } else {
+                alert('系统错误，请稍后重试');
+            }
+
+            $('#loginLink').trigger('click');
+        },
+        error: function (xhr, textStatus) {
+            console.log('注册失败，请稍后重试');
+            console.log(xhr);
+            console.log(textStatus);
+        }
+    })
+});
 
 
 
@@ -29,7 +69,7 @@ socket.on('welcome', function (data) { //监听事件，获取服务器发送的
 
 $('#signIn').on('click', function () {
 
-    var username = $('#username').val();
+    let username = $('#username').val();
     if (username === '') {
         alert('require username');
         return false;
@@ -173,6 +213,8 @@ $('#registerLink').on('click', function() {
     $('#registerLink').css('display', 'none');
     $('#loginLink').css('display', 'inline-block');
     $('.reset').css('margin-top', '163px');
+    $('#signIn').css('display', 'none');
+    $('#signUp').css('display', 'block')
 });
 
 // 注册 => 登录
@@ -181,6 +223,10 @@ $('#loginLink').on('click', function() {
     $('#registerLink').css('display', 'inline-block');
     $('#loginLink').css('display', 'none');
     $('.reset').css('margin-top', '250px');
+    $('#signIn').css('display', 'block');
+    $('#signUp').css('display', 'none')
+    $('#username').val('');
+    $('#password').val('');
 });
 
 // 关闭 modal
