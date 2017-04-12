@@ -24,6 +24,8 @@ CREATE TABLE IF NOT EXISTS friends (
     id int NOT NULL AUTO_INCREMENT,	              /* 好友列表 ID（唯一标识） */
     user_id int NOT NULL,		          		        /* 用户 ID */
     friends_id int NOT NULL,			                /* 用户好友 ID */
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (friends_id) REFERENCES users(id),
   	PRIMARY KEY (id)
 );
 
@@ -35,6 +37,8 @@ CREATE TABLE IF NOT EXISTS groups (
     groupname varchar(32) DEFAULT NULL,				    /* 组名 */
     gavatar varchar(256) DEFAULT NULL,		        /* 组头像路径 */
     gautograph varchar(128) DEFAULT NULL,			    /* 组签名 */
+    owner_id int NOT NULL,                       /* 创建人 ID */
+    FOREIGN KEY (ownner_id) REFERENCES users(id),
   	PRIMARY KEY (id)
 );
 
@@ -44,6 +48,8 @@ CREATE TABLE IF NOT EXISTS groups (
 CREATE TABLE IF NOT EXISTS group_members (
     id int NOT NULL AUTO_INCREMENT,	              /* 组成员表 ID（唯一标识） */
     group_id int NOT NULL,		                    /* 组 ID */
-    group_member int NOT NULL,			              /* 组签名 */
+    group_member_id int NOT NULL,			            /* 组签名 */
+    FOREIGN KEY (group_id) REFERENCES groups(id),
+    FOREIGN KEY (group_member_id) REFERENCES users(id),
   	PRIMARY KEY (id)
 );

@@ -1,7 +1,7 @@
 'user strict'
 
-// 默认页面
-var GLOBALSTATE = {
+// 默认主页页面
+let GLOBALSTATE = {
     route: '.list-login'
 };
 
@@ -25,10 +25,19 @@ $('#signUp').on('click', function() {
 
     if (username === '') {
         alert('用户名不能为空');
+        return false;
+    } else if (username.length < 6 || username.length > 15) {
+        alert('用户名长度应在 6 ~ 15 个字符之间');
+        return false;
     } else if (password === '' || confirmPassword === '') {
-        alert('密码和确认密码不能为空')
+        alert('密码和确认密码不能为空');
+        return false;
+    } else if (password.length < 6) {
+        alert('密码长度应大于6个字符');
+        return false;
     } else if (password !== confirmPassword) {
         alert('密码和确认密码应一致');
+        return false;
     }
 
     $.ajax({
@@ -61,7 +70,7 @@ $('#signUp').on('click', function() {
 
 
 
-var socket = io.connect('localhost:3000'); //连接服务器
+let socket = io.connect('localhost:3000'); //连接服务器
 socket.on('welcome', function (data) { //监听事件，获取服务器发送的消息
     console.log(data.text); //输出消息
 });
@@ -70,10 +79,38 @@ socket.on('welcome', function (data) { //监听事件，获取服务器发送的
 $('#signIn').on('click', function () {
 
     let username = $('#username').val();
+    let password = $('#password').val();
+
     if (username === '') {
-        alert('require username');
-        return false;
+        alert('用户名不能为空');
+    } else if (password === '') {
+        alert('密码不能为空');
     }
+
+    $.ajax({
+        url: '/signin',
+        type: 'POST',
+        async: true,
+        data: {
+            username: username,
+            password: password
+        },
+        success: function (data, textStatus, jqXHR) {
+            console.log(data);
+
+            if (data === 'failure') {
+                alert('登录失败，请稍后重试');
+            }
+
+            let obj = JSON.parse(data);
+            console.log(obj);
+        },
+        error: function (xhr, textStatus) {
+            console.log('登录失败，请稍后重试');
+            console.log(xhr);
+            console.log(textStatus);
+        }
+    })
 
     //在服务器接收消息之后，以回调函数返回数据给客户端告诉昵称是否存在
     socket.emit('name', username, function (data) {
@@ -90,7 +127,7 @@ $('#signIn').on('click', function () {
             alert('昵称已存在');
         }
     });
-});;
+});
 
 //接收服务器广播的昵称列表，并显示在页面上
 socket.on('usernames', function (data) {
