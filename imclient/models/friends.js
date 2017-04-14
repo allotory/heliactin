@@ -13,6 +13,14 @@ let Friends = sequelize.define('friends', {
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
+    },
+    user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    friends_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
     }
 }, {
     timestamps: false

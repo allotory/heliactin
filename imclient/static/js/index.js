@@ -69,11 +69,11 @@ $('#signUp').on('click', function() {
 });
 
 
-
-let socket = io.connect('localhost:3000'); //连接服务器
-socket.on('welcome', function (data) { //监听事件，获取服务器发送的消息
-    console.log(data.text); //输出消息
-});
+//
+// let socket = io.connect('localhost:3000'); //连接服务器
+// socket.on('welcome', function (data) { //监听事件，获取服务器发送的消息
+//     console.log(data.text); //输出消息
+// });
 
 
 $('#signIn').on('click', function () {
@@ -83,8 +83,10 @@ $('#signIn').on('click', function () {
 
     if (username === '') {
         alert('用户名不能为空');
+        return false;
     } else if (password === '') {
         alert('密码不能为空');
+        return false;
     }
 
     $.ajax({
@@ -102,8 +104,45 @@ $('#signIn').on('click', function () {
                 alert('登录失败，请稍后重试');
             }
 
+            // 登录成功
             let obj = JSON.parse(data);
             console.log(obj);
+
+            // 显示首页界面
+            GLOBALSTATE.route = '.list-account';
+            setRoute(GLOBALSTATE.route);
+            $('.nav').show();
+            $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
+            $('.list-login').css('display', 'none');
+
+            // 显示好友列表
+            let fhtml = '';
+            for (let f in obj.friends) {
+                fhtml += '<li onclick="listAccountChat()" id="friend-' + obj.friends[f].id + '">' +
+                    '<img src="../static/css/images/avatar.jpg">' +
+                        '<div class="content-container">' +
+                        '<span class="name">'+ obj.friends[f].nickname + '</span>' +
+                        '<span class="txt">' + obj.friends[f].autograph + '</span>' +
+                    '</div>' +
+                    '<i class="mdi mdi-menu-down"></i>' +
+                '</li>';
+            }
+            $('#friendsList').html(fhtml);
+
+            // 显示全部以参加的组
+            let ghtml = '';
+            for (let g in obj.groups) {
+                ghtml += '<li id="group-' + obj.groups[g].id + '">' +
+                    '<img src="../static/css/images/avatar.jpg">' +
+                    '<div class="content-container">' +
+                        '<span class="name">' + obj.groups[g].groupname + '</span>' +
+                        '<span class="txt">' + obj.groups[g].gautograph + '</span>' +
+                    '</div>' +
+                    '<span class="time">14:00</span>' +
+                '</li>';
+            }
+            $('#groupList').html(ghtml);
+
         },
         error: function (xhr, textStatus) {
             console.log('登录失败，请稍后重试');
@@ -112,39 +151,39 @@ $('#signIn').on('click', function () {
         }
     })
 
-    //在服务器接收消息之后，以回调函数返回数据给客户端告诉昵称是否存在
-    socket.emit('name', username, function (data) {
-        if (data) { //昵称不存在列表中，昵称添加成功
-            console.log('successfully'); //设置昵称成功
-
-            GLOBALSTATE.route = '.list-account';
-            setRoute(GLOBALSTATE.route);
-            $('.nav').show();
-            $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
-            $('.list-login').css('display', 'none');
-        }
-        else { //昵称存在于列表
-            alert('昵称已存在');
-        }
-    });
+    // //在服务器接收消息之后，以回调函数返回数据给客户端告诉昵称是否存在
+    // socket.emit('name', username, function (data) {
+    //     if (data) { //昵称不存在列表中，昵称添加成功
+    //         console.log('successfully'); //设置昵称成功
+    //
+    //         GLOBALSTATE.route = '.list-account';
+    //         setRoute(GLOBALSTATE.route);
+    //         $('.nav').show();
+    //         $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
+    //         $('.list-login').css('display', 'none');
+    //     }
+    //     else { //昵称存在于列表
+    //         alert('昵称已存在');
+    //     }
+    // });
 });
 
 //接收服务器广播的昵称列表，并显示在页面上
-socket.on('usernames', function (data) {
-    let html = '';
-
-    for (var i = 0; i < data.length; i++) {
-        html += '<li onclick="listAccountChat()">' +
-            '<img src="../static/css/images/avatar.jpg">' +
-                '<div class="content-container">' +
-                '<span class="name">'+ data[i] + '</span>' +
-                '<span class="txt">i get the style search-filtstyle se-faaail</span>' +
-            '</div>' +
-            '<i class="mdi mdi-menu-down"></i>' +
-        '</li>';
-    }
-    $('#friendsList').html(html);
-});
+// socket.on('usernames', function (data) {
+//     let html = '';
+//
+//     for (var i = 0; i < data.length; i++) {
+//         html += '<li onclick="listAccountChat()">' +
+//             '<img src="../static/css/images/avatar.jpg">' +
+//                 '<div class="content-container">' +
+//                 '<span class="name">'+ data[i] + '</span>' +
+//                 '<span class="txt">i get the style search-filtstyle se-faaail</span>' +
+//             '</div>' +
+//             '<i class="mdi mdi-menu-down"></i>' +
+//         '</li>';
+//     }
+//     $('#friendsList').html(html);
+// });
 
 // 好友列表 => 聊天页面
 function listAccountChat() {
@@ -196,22 +235,22 @@ $('.chat-input').on('keyup', function (event) {
     }
 });
 
-socket.on('clientReceiveMessage', function(data) {
-    let now = new Date();
-    let amPm = now.getHours() > 12? 'PM': 'AM';
-    let message =
-        '<li class="friend">' +
-        '<div class="head">' +
-        '<span class="name">' + data.sender + ' </span>' +
-        '<span class="time">' + now.getHours() + ':' + now.getMinutes() + ' ' + amPm + ', Today </span>' +
-        '</div>' +
-        '<div class="message">' + data.message + '</div>' +
-        '</li>';
-
-    $('#chatting').append(message);
-    let msg = $('#chatting');
-    msg.scrollTop(msg[0].scrollHeight);
-});
+// socket.on('clientReceiveMessage', function(data) {
+//     let now = new Date();
+//     let amPm = now.getHours() > 12? 'PM': 'AM';
+//     let message =
+//         '<li class="friend">' +
+//         '<div class="head">' +
+//         '<span class="name">' + data.sender + ' </span>' +
+//         '<span class="time">' + now.getHours() + ':' + now.getMinutes() + ' ' + amPm + ', Today </span>' +
+//         '</div>' +
+//         '<div class="message">' + data.message + '</div>' +
+//         '</li>';
+//
+//     $('#chatting').append(message);
+//     let msg = $('#chatting');
+//     msg.scrollTop(msg[0].scrollHeight);
+// });
 
 
 // Set Name

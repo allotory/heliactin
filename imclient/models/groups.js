@@ -7,8 +7,6 @@ const sequelize = require('../db/db');
 
 const Sequelize = require('sequelize');
 
-const GroupMembers = require('./groups_member');
-
 let Groups = sequelize.define('groups', {
     id: {
         type: Sequelize.INTEGER,
@@ -30,12 +28,13 @@ let Groups = sequelize.define('groups', {
         type: Sequelize.STRING(128),
         allowNull: true,
         defaultValue: ''
+    },
+    owner_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
     }
 }, {
     timestamps: false
 });
-
-// group members
-Groups.hasMany(GroupMembers, {as: 'GroupMember', foreignKey: 'group_id'});
 
 module.exports = Groups;

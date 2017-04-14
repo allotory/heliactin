@@ -13,6 +13,14 @@ let GroupMembers = sequelize.define('group_members', {
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
+    },
+    group_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    group_member_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
     }
 }, {
     timestamps: false

@@ -7,10 +7,6 @@ const sequelize = require('../db/db');
 
 const Sequelize = require('sequelize');
 
-const Friends = require('./friends');
-const Groups = require('./groups');
-const GroupMembers = require('./groups_member');
-
 let Users = sequelize.define('users', {
     id: {
         type: Sequelize.INTEGER,
@@ -49,15 +45,5 @@ let Users = sequelize.define('users', {
 }, {
     timestamps: false
 });
-
-// friends
-Users.hasMany(Friends, {as: 'UserFriends', foreignKey: 'user_id'});
-Users.hasMany(Friends, {as: 'UserFriends', foreignKey: 'friends_id'});
-
-// groups
-Users.hasMany(Groups, {as: 'UserGroups', foreignKey: 'owner_id'});
-
-// groups member
-Users.hasMany(GroupMembers, {as: 'UserGroupMembers', foreignKey: 'group_member_id'});
 
 module.exports = Users;

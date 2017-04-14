@@ -8,13 +8,14 @@
 let JsSHA = require("jssha");
 const UserModel = require('../models/users');
 const FriendsModel = require('../models/friends');
+const GroupsModel = require('../models/groups');
+const GroupMembersModel = require('../models/groups_member');
 
 // 用户登录
 let func_signIn = async (ctx, next) => {
+
     let username = ctx.request.body.username;
     let password = ctx.request.body.password;
-
-    // console.log(`signin with username: ${username}, password: ${password}`);
 
     // 生成加密盐
     let shaObj = new JsSHA('SHA-256', 'TEXT');
@@ -26,33 +27,59 @@ let func_signIn = async (ctx, next) => {
     let encryptPassword = shaObj.getHash('HEX');
 
     // 查询用户
-    let user = await UserModel.findAll({
-
-        include: [{model: FriendsModel, as: 'UserFriends'}],
+    let user = await UserModel.findOne({
+        attributes: ['id', 'username', 'nickname', 'gender', 'avatar', 'autograph'],
         where: {
             username: username,
             password: encryptPassword
         }
     });
 
-    // console.log(`find ${users.length} users:`);
+    // 查询全部好友
+    let friends = await FriendsModel.findAll({
+        where: {
+            user_id: user.id
+        }
+    });
 
-    console.log(user);
+    // 全部好友 id
+    let friendsList = [];
+    friends.forEach(function (friend) {
+        friendsList.push(friend.friends_id);
+    });
 
-    // let friends = await FriendsModel.findAll({
-    //     include: [{model: UserModel, as: 'UserFriends'}],
-    //     where: {
-    //         user_id: user.id
-    //     }
-    // });
-    //
-    // console.log(friends);
+    let friendUsers = await UserModel.findAll({
+        attributes: ['id', 'username', 'nickname', 'gender', 'avatar', 'autograph'],
+        where: {
+            id: friendsList
+        }
+    });
+
+    // 全部当前参加组
+    let groupMembers = await GroupMembersModel.findAll({
+        where: {
+            group_member_id: user.id
+        }
+    });
+    let groupsList = [];
+    groupMembers.forEach(function (groupMember) {
+        groupsList.push(groupMember.group_id);
+    });
+
+    let groups = await GroupsModel.findAll({
+        where: {
+            id: groupsList
+        }
+    });
+
+    // 当前用户及其好友列表
+    let userObj = {};
+    userObj.user = user;
+    userObj.friends = friendUsers;
+    userObj.groups = groups;
 
     if (user) {
-
-        // let friends = await
-
-        ctx.response.body = JSON.stringify(user);
+        ctx.response.body = JSON.stringify(userObj);
     } else {
         ctx.response.body = 'failure';
     }
