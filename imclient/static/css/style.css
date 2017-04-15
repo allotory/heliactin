@@ -517,6 +517,25 @@ ul.messages li.friend .message:before {
     left: 16px;
     border-bottom-color: #00b0ff;
 }
+
+ul.messages li.system .name {
+    margin-left: 20px;
+}
+ul.messages li.system .name:after {
+    background-color: #eceff1;
+    left: -20px;
+    top: 6px;
+}
+ul.messages li.system .message {
+    background-color: #eceff1;
+    color: black;
+    float: left;
+}
+ul.messages li.system .message:before {
+    left: 16px;
+    border-bottom-color: #eceff1;
+}
+
 ul.messages li.i .head {
     text-align: right;
 }

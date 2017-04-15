@@ -1,9 +1,13 @@
-'user strict'
+'user strict';
 
-// 默认主页页面
+// 全局变量
 let GLOBALSTATE = {
-    route: '.list-login'
+    // 默认导航页面
+    route: '.list-login',
+    // 当前群组ID
+    globalGroup: 0
 };
+
 
 // 设置页面
 setRoute(GLOBALSTATE.route);
@@ -65,12 +69,12 @@ $('#signUp').on('click', function() {
             console.log(xhr);
             console.log(textStatus);
         }
-    })
+    });
 });
 
 
-//
-// let socket = io.connect('localhost:3000'); //连接服务器
+
+let socket = null;
 // socket.on('welcome', function (data) { //监听事件，获取服务器发送的消息
 //     console.log(data.text); //输出消息
 // });
@@ -118,7 +122,7 @@ $('#signIn').on('click', function () {
             // 显示好友列表
             let fhtml = '';
             for (let f in obj.friends) {
-                fhtml += '<li onclick="listAccountChat()" id="friend-' + obj.friends[f].id + '">' +
+                fhtml += '<li onclick="listFriendsChat()" id="friend_' + obj.friends[f].id + '">' +
                     '<img src="../static/css/images/avatar.jpg">' +
                         '<div class="content-container">' +
                         '<span class="name">'+ obj.friends[f].nickname + '</span>' +
@@ -132,7 +136,7 @@ $('#signIn').on('click', function () {
             // 显示全部以参加的组
             let ghtml = '';
             for (let g in obj.groups) {
-                ghtml += '<li id="group-' + obj.groups[g].id + '">' +
+                ghtml += '<li onclick="listGroupsChat(this.id, ' + obj.user.id + ')" id="group_' + obj.groups[g].id + '">' +
                     '<img src="../static/css/images/avatar.jpg">' +
                     '<div class="content-container">' +
                         '<span class="name">' + obj.groups[g].groupname + '</span>' +
@@ -142,6 +146,9 @@ $('#signIn').on('click', function () {
                 '</li>';
             }
             $('#groupList').html(ghtml);
+
+            // 连接服务器
+            socket = io.connect('localhost:3000');
 
         },
         error: function (xhr, textStatus) {
@@ -186,7 +193,7 @@ $('#signIn').on('click', function () {
 // });
 
 // 好友列表 => 聊天页面
-function listAccountChat() {
+function listFriendsChat() {
     setTimeout(function () {
         $('.shown').removeClass('shown');
 
@@ -199,6 +206,73 @@ function listAccountChat() {
         msg.scrollTop(msg[0].scrollHeight);
 
     }, 300);
+}
+
+// 群组列表 => 聊天页面
+function listGroupsChat(group_id, user_id) {
+
+    // 设置全局群组 id
+    GLOBALSTATE.globalGroup = group_id;
+
+    // 在服务器接收消息之后，以回调函数返回数据给客户端
+    socket.emit('groupId', group_id, function (data) {
+        if (data) {
+            console.log('successfully');
+
+            setTimeout(function () {
+                $('.shown').removeClass('shown');
+
+                $('.list-chat').addClass('shown');
+                setRoute('.list-chat');
+                $('.chat-input').focus();
+                GLOBALSTATE.route = '.list-text';
+
+                let msg = $('#chatting');
+                msg.scrollTop(msg[0].scrollHeight);
+
+            }, 300);
+        } else {
+            alert('进入群组失败，请稍后重试...');
+        }
+    });
+
+    socket.emit('join', user_id);
+
+    // 监听系统消息
+    socket.on('sys', function (sysMsg, users) {
+        let now = new Date();
+        let amPm = now.getHours() > 12? 'PM': 'AM';
+        let message =
+            '<li class="system">' +
+            '<div class="head">' +
+            '<span class="name">System </span>' +
+            '<span class="time">' + now.getHours() + ':' + now.getMinutes() + ' ' + amPm + ', Today </span>' +
+            '</div>' +
+            '<div class="message">用户 ' + users + ' 进入当前群组~</div>' +
+            '</li>';
+
+        $('#chatting').append(message);
+        let msg = $('#chatting');
+        msg.scrollTop(msg[0].scrollHeight);
+    });
+
+    // 监听消息
+    socket.on('msg', function (userName, msgs) {
+        let now = new Date();
+        let amPm = now.getHours() > 12? 'PM': 'AM';
+        let message =
+            '<li class="friend">' +
+            '<div class="head">' +
+            '<span class="name">' + userName + ' </span>' +
+            '<span class="time">' + now.getHours() + ':' + now.getMinutes() + ' ' + amPm + ', Today </span>' +
+            '</div>' +
+            '<div class="message">' + msgs + '</div>' +
+            '</li>';
+
+        $('#chatting').append(message);
+        let msg = $('#chatting');
+        msg.scrollTop(msg[0].scrollHeight);
+    });
 }
 
 // 发送消息
@@ -234,6 +308,7 @@ $('.chat-input').on('keyup', function (event) {
         $('.mdi-send').trigger('click');
     }
 });
+
 
 // socket.on('clientReceiveMessage', function(data) {
 //     let now = new Date();
@@ -337,6 +412,8 @@ function setModal(mode, $ctx) {
 
 // 后退按钮
 $('.mdi-arrow-left').on('click', function () {
+    socket.emit('leave', GLOBALSTATE.globalGroup);
+    $('#chatting').val('');
     $('.shown').removeClass('shown');
     setRoute(GLOBALSTATE.route);
 });
@@ -462,9 +539,10 @@ $('.nav li').on('click', function () {
     $(this).parent().children().removeClass('active');
     $(this).addClass('active');
     $('.shown').removeClass('shown');
-    var route = $(this).data('route');
+    let route = $(this).data('route');
     $(route).addClass('shown');
     setRoute(route);
+    GLOBALSTATE.route = route;
 });
 
 
