@@ -41,19 +41,43 @@ let server = app.listen(3000);
 let io = require('socket.io').listen(server);
 
 // 房间用户名单
+let userInfos = {};
+let userSockets = {};
 let groupInfo = {};
 
-// 给socket.io添加客户端连接服务器监听事件
+// 给 socket.io 添加客户端连接服务器监听事件
 io.on('connection', function (socket) {
+
+    // 登录成功后，加入服务器
+    socket.on('online', function (user_id, callback) {
+        userInfos[user_id] = user_id;
+        userSockets[user_id] = socket;
+        callback(true);
+    });
+
+    // 私聊
+    socket.on('privateMessage', function (from, to, msg) {
+        if (to in userSockets) {
+            console.log(from + ' to ' + to + ':' + msg);
+            userSockets[to].emit('receivePrivateMsg', from, msg);
+        }
+    });
+
+    // 退出私聊
+    socket.on('leavePrivateChat', function (from ,to) {
+        console.log(from + '退出了与' + to + '私聊');
+    });
 
     let userId, groupId;
 
-    socket.on('groupId', function (group_id, callback) {
+    // 接收待加入群组 id
+    socket.on('chatGroupId', function (group_id, callback) {
         groupId = group_id;
         callback(true);
     });
 
-    socket.on('join', function (user_id) {
+    // 加入群组
+    socket.on('joinGroup', function (user_id, callback) {
         userId = user_id;
 
         if (!groupInfo[groupId]) {
@@ -64,6 +88,7 @@ io.on('connection', function (socket) {
         // 加入房间
         socket.join(groupId);
         // 通知房间内人员
+        callback(true);
         io.to(groupId).emit('sys', userId + '加入了房间', groupInfo[groupId]);
         console.log(userId + '加入了' + groupId);
     });
@@ -74,17 +99,17 @@ io.on('connection', function (socket) {
         if (groupInfo[groupId].indexOf(userId) === -1) {
             return false;
         }
+
         // 向房间所有人发消息，发送者除外
         socket.broadcast.to(groupId).emit('msg', userId, msg);
     });
 
-    socket.on('leave', function (globalGroup) {
+    socket.on('leaveGroup', function (globalGroup) {
         // 从房间名单中移除
         let index = groupInfo[globalGroup].indexOf(userId);
         if (index !== -1) {
             groupInfo[globalGroup].splice(index, 1);
         }
-
         // 退出房间
         socket.leave(globalGroup);
         console.log(userId + '退出了' + globalGroup);
