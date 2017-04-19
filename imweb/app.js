@@ -16,7 +16,7 @@ const app = new Koa();
 
 // log request URL:
 app.use(async (ctx, next) => {
-    console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
+    console.log(`[IM] Request process: ${ctx.request.method} ${ctx.request.url}`);
     ctx.state.username = 'ellery';
     await next();
 });
@@ -58,14 +58,14 @@ io.on('connection', function (socket) {
     // 私聊
     socket.on('privateMessage', function (from, to, msg) {
         if (to in userSockets) {
-            console.log(from + ' to ' + to + ':' + msg);
+            console.log('[IM] Private message info: ' + from + ' to ' + to + ':' + msg);
             userSockets[to].emit('receivePrivateMsg', from, msg);
         }
     });
 
     // 退出私聊
     socket.on('leavePrivateChat', function (from ,to) {
-        console.log(from + '退出了与' + to + '私聊');
+        console.log('[IM] Leave Private chat info: ' + from + '退出了与' + to + '私聊');
     });
 
     let userId, groupId;
@@ -90,7 +90,7 @@ io.on('connection', function (socket) {
         // 通知房间内人员
         callback(true);
         io.to(groupId).emit('sys', userId + '加入了房间', groupInfo[groupId]);
-        console.log(userId + '加入了' + groupId);
+        console.log('[IM] Join group info: ' + userId + '加入了' + groupId);
     });
 
     // 接收用户消息,发送相应的房间
@@ -112,7 +112,7 @@ io.on('connection', function (socket) {
         }
         // 退出房间
         socket.leave(globalGroup);
-        console.log(userId + '退出了' + globalGroup);
+        console.log('[IM] Leave group info: ' + userId + '退出了' + globalGroup);
     });
 
     socket.on('disconnect', function () {
@@ -124,45 +124,9 @@ io.on('connection', function (socket) {
         //
         // socket.leave(groupId);    // 退出房间
         // io.to(groupId).emit('sys', userId + '退出了房间', groupInfo[groupId]);
-        // console.log(userId + '退出了' + groupId);
+        console.log('[IM] Disconnect info: ' + userId + '退出了' + groupId);
     });
 
-    // console.log('user connected');//输出客户端连接服务器日志
-    //
-    // socket.emit('welcome', {text: 'connected'});//发送消息给新连接服务器的客户端
-    //
-    // //服务器监听客户端提交的昵称,判断是否已经存在,并以回调函数返回true或false告诉客户端昵称是否存在
-    // socket.on('name', function (data, callback) {
-    //     if (namelist.indexOf(data) === -1) {//昵称不存在
-    //         console.log('hehe');
-    //         callback(true);//从服务器返回给客户端的回调函数，昵称不存在返回true
-    //         namelist.push(data);//存储新添加的昵称
-    //         socket.username = data;//用于断开连接时，从列表时删除
-    //         console.log('昵称：' + namelist);
-    //         io.sockets.emit('usernames', namelist);//把昵称列表广播给所有在线的用户
-    //     }
-    //     else {
-    //         callback(false);//昵称存在，返回客户端为false
-    //     }
-    //
-    // });
-    //
-    // //服务器监听客户端发送的消息，并把消息广播给所有连接服务器的客户端
-    // socket.on('message', function (data) {
-    //     socket.broadcast.emit('clientReceiveMessage', {sender: socket.username, message: data});
-    // });
-    //
-    // //当有客户端断开连接时，重新发送昵称列表给所有在线客户端，实现实时更新
-    // socket.on('disconnect', function () {
-    //     if (!socket.username) return;
-    //     if (namelist.indexOf(socket.username) > -1) {//从在线列表删除断开连接的客户昵称
-    //         namelist.splice(namelist.indexOf(socket.username), 1);
-    //     }
-    //     console.log('昵称：' + namelist);
-    //     io.sockets.emit('usernames', namelist);//把昵称列表广播给所有在线的用户
-    // });
 });
 
-
-
-console.log('server started at port 3000.');
+console.log('[IM] Server info: Server started at port 3000.');

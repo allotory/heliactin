@@ -6,7 +6,7 @@
 const Sequelize = require('sequelize');
 const config = require('../config');
 
-console.log('init sequelize...');
+console.log('[IM] Init sequelize');
 
 var sequelize = new Sequelize(config.database, config.username, config.password, {
     host: config.host,

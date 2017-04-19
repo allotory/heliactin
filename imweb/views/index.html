@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 
-
     <link rel='stylesheet prefetch' href='../static/css/materialdesignicons.min.css'>
     <link rel='stylesheet prefetch' href='../static/css/fonts.css'>
 
     <link rel="stylesheet" href="../static/css/style.css">
-
 
 </head>
 
@@ -39,19 +37,16 @@
             </div>
         </div>
 
-
         <div class="card menu info">
             <div class="header">
-                <img src="../static/css/images/index.png"/>
+                <img id="userAvatar" src=""/>
                 <h3></h3>
             </div>
             <div class="content">
-
                 <div class="i-group">
-                    <input type="text" id="name"><span class="bar"></span>
-                    <label>Name</label>
+                    <input type="text" id="nickname" class="used"><span class="bar"></span>
+                    <label>NickName</label>
                 </div>
-                <br/>
             </div>
         </div>
 
@@ -111,32 +106,32 @@
         <div class="list-chat">
 
             <ul id="chatting" class="messages">
-                <li class="i">
-                    <div class="head">
-                        <span class="time">10:13 AM, Today</span>
-                        <span class="name">Буль</span>
-                    </div>
-                    <div class="message">ПриветПриве тПриветПр иветПриве тПриветПрив етПрив етПри вет!</div>
-                </li>
+                <!--<li class="i">-->
+                    <!--<div class="head">-->
+                        <!--<span class="time">10:13 AM, Today</span>-->
+                        <!--<span class="name">Буль</span>-->
+                    <!--</div>-->
+                    <!--<div class="message">ПриветПриве тПриветПр иветПриве тПриветПрив етПрив етПри вет!</div>-->
+                <!--</li>-->
 
-                <div class="conversation-start">
-                    <span>Today, 5:38 PM</span>
-                </div>
+                <!--<div class="conversation-start">-->
+                    <!--<span>Today, 5:38 PM</span>-->
+                <!--</div>-->
 
-                <li class="friend">
-                    <div class="head">
-                        <span class="name">Юния</span>
-                        <span class="time">10:15 AM, Today</span>
-                    </div>
-                    <div class="message">чего тебе?</div>
-                </li>
-                <li class="system">
-                    <div class="head">
-                        <span class="name">Юния</span>
-                        <span class="time">10:15 AM, Today</span>
-                    </div>
-                    <div class="message">чего тебе?</div>
-                </li>
+                <!--<li class="friend">-->
+                    <!--<div class="head">-->
+                        <!--<span class="name">Юния</span>-->
+                        <!--<span class="time">10:15 AM, Today</span>-->
+                    <!--</div>-->
+                    <!--<div class="message">чего тебе?</div>-->
+                <!--</li>-->
+                <!--<li class="system">-->
+                    <!--<div class="head">-->
+                        <!--<span class="name">Юния</span>-->
+                        <!--<span class="time">10:15 AM, Today</span>-->
+                    <!--</div>-->
+                    <!--<div class="message">чего тебе?</div>-->
+                <!--</li>-->
             </ul>
 
             <div class="meta-bar chat">
@@ -176,7 +171,7 @@
 
 
         <ul class="nav control mat-ripple tiny">
-            <li data-route=".list-account"><i class="mdi mdi-comment-text"></i></li><li data-route=".list-text"><i class="mdi mdi-account-multiple"></i></li><li data-route=".list-phone"><i class="mdi mdi-star-outline"></i></li>
+            <li data-route=".list-account"><i class="mdi mdi-comment-text"></i></li><li data-route=".list-text"><i class="mdi mdi-account-multiple"></i></li><li data-route=".list-phone"><i class="mdi mdi-magnify"></i></li>
         </ul>
     </div>
 

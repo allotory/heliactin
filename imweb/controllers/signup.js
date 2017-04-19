@@ -32,7 +32,7 @@ let func_signUp = async (ctx, next) => {
         password: encryptPassword,
         salt: hash,
         gender: 0,
-        avatar: '',
+        avatar: '../static/css/images/index.png',
         autograph: '',
     });
     // console.log('created: ' + JSON.stringify(ellery));

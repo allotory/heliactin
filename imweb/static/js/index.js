@@ -59,8 +59,8 @@ $('#signUp').on('click', function() {
             username: username,
             password: password
         },
-        success: function (data, textStatus, jqXHR) {
-            console.log(data);
+        success: function (data) {
+            console.log('[IM] Signup success info: ' + data);
             if (data === 'success') {
                 alert('注册成功，请重新登录')
             } else if (data === 'failure') {
@@ -72,7 +72,7 @@ $('#signUp').on('click', function() {
             $('#loginLink').trigger('click');
         },
         error: function (xhr, textStatus) {
-            console.log('注册失败，请稍后重试');
+            console.log('[IM] Signup error info: 注册失败，请稍后重试');
             console.log(xhr);
             console.log(textStatus);
         }
@@ -108,16 +108,16 @@ $('#signIn').on('click', function () {
             username: username,
             password: password
         },
-        success: function (data, textStatus, jqXHR) {
-            console.log(data);
-
+        success: function (data) {
             if (data === 'failure') {
                 alert('登录失败，请稍后重试');
             }
 
+            console.log('[IM] Global json data:' + data);
+
             // 登录成功
             let obj = JSON.parse(data);
-            console.log(obj);
+            console.log('[IM] Global object data:' + obj);
 
             // 设置全局数据
             GLOBALSTATE.globalData = obj;
@@ -128,6 +128,10 @@ $('#signIn').on('click', function () {
             $('.nav').show();
             $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
             $('.list-login').css('display', 'none');
+
+            // 个人信息
+            $('#nickname').val(obj.user.nickname);
+            $('#userAvatar').attr('src', obj.user.avatar);
 
             // 显示好友列表
             let fhtml = '';
@@ -161,51 +165,19 @@ $('#signIn').on('click', function () {
             socket = io.connect('localhost:3000');
             socket.emit('online', obj.user.id, function (info) {
                 if (info) {
-                    console.log('登录连接服务器成功~');
+                    console.log('[IM] ConnectSocket info: 登录连接服务器成功~');
                 }
             });
 
         },
         error: function (xhr, textStatus) {
-            console.log('登录失败，请稍后重试');
+            console.log('[IM] ConnectSocket info: 登录失败，请稍后重试');
             console.log(xhr);
             console.log(textStatus);
         }
     })
 
-    // //在服务器接收消息之后，以回调函数返回数据给客户端告诉昵称是否存在
-    // socket.emit('name', username, function (data) {
-    //     if (data) { //昵称不存在列表中，昵称添加成功
-    //         console.log('successfully'); //设置昵称成功
-    //
-    //         GLOBALSTATE.route = '.list-account';
-    //         setRoute(GLOBALSTATE.route);
-    //         $('.nav').show();
-    //         $('.nav > li[data-route="' + GLOBALSTATE.route + '"]').addClass('active');
-    //         $('.list-login').css('display', 'none');
-    //     }
-    //     else { //昵称存在于列表
-    //         alert('昵称已存在');
-    //     }
-    // });
 });
-
-//接收服务器广播的昵称列表，并显示在页面上
-// socket.on('usernames', function (data) {
-//     let html = '';
-//
-//     for (var i = 0; i < data.length; i++) {
-//         html += '<li onclick="listAccountChat()">' +
-//             '<img src="../static/css/images/avatar.jpg">' +
-//                 '<div class="content-container">' +
-//                 '<span class="name">'+ data[i] + '</span>' +
-//                 '<span class="txt">i get the style search-filtstyle se-faaail</span>' +
-//             '</div>' +
-//             '<i class="mdi mdi-menu-down"></i>' +
-//         '</li>';
-//     }
-//     $('#friendsList').html(html);
-// });
 
 // 好友列表 => 聊天页面
 function listFriendsChat(from, to) {
@@ -287,7 +259,7 @@ function listGroupsChat(group_id, user_id, data) {
 
     socket.emit('joinGroup', user_id, function (data) {
         if (data) {
-            console.log('成功加入群组，可以开始聊天了~');
+            console.log('[IM] Socket info: 登成功加入群组，可以开始聊天了~');
         }
     });
 
@@ -320,7 +292,6 @@ function listGroupsChat(group_id, user_id, data) {
                 userId: userId
             },
             success: function (data) {
-                console.log(data);
                 let userName = JSON.parse(data).nickname;
 
                 let now = new Date();
@@ -339,7 +310,7 @@ function listGroupsChat(group_id, user_id, data) {
                 msg.scrollTop(msg[0].scrollHeight);
             },
             error: function (xhr, textStatus) {
-                console.log('查询群用户失败，请稍后重试');
+                console.log('[IM] Socket info: 查询群用户失败，请稍后重试');
                 console.log(xhr);
                 console.log(textStatus);
             }
@@ -406,54 +377,6 @@ $('.mdi-arrow-left').on('click', function () {
     }
 });
 
-// socket.on('clientReceiveMessage', function(data) {
-//     let now = new Date();
-//     let amPm = now.getHours() > 12? 'PM': 'AM';
-//     let message =
-//         '<li class="friend">' +
-//         '<div class="head">' +
-//         '<span class="name">' + data.sender + ' </span>' +
-//         '<span class="time">' + now.getHours() + ':' + now.getMinutes() + ' ' + amPm + ', Today </span>' +
-//         '</div>' +
-//         '<div class="message">' + data.message + '</div>' +
-//         '</li>';
-//
-//     $('#chatting').append(message);
-//     let msg = $('#chatting');
-//     msg.scrollTop(msg[0].scrollHeight);
-// });
-
-
-// Set Name
-// setName(localStorage.getItem('username'));
-
-// Dyncolor ftw
-// if (localStorage.getItem('color') !== null) {
-//     var colorarray = JSON.parse(localStorage.getItem('color'));
-//     stylechange(colorarray);
-// } else {
-//      var colorarray = [15, 157, 88]; // 15 157 88 = #0f9d58
-//     localStorage.setItem('color', JSON.stringify(colorarray));
-//     stylechange(colorarray);
-// }
-
-// // Helpers
-// function setName(name) {
-//     $.trim(name) === '' || $.trim(name) === null ? name = 'John Doe' : name = name;
-//     $('h1').text(name);
-//     localStorage.setItem('username', name);
-//     $('#username').val(name).addClass('used');
-//     $('.card.menu > .header > h3').text(name);
-// }
-
-// Stylechanger
-// function stylechange(arr) {
-//     // var x = 'rgba(' + arr[0] + ',' + arr[1] + ',' + arr[2] + ',1)';
-//     var x = 'rgba(' + 0 + ',' + 153 + ',' + 255 + ',1)';
-//     console.log('.dialog h3 {color: ' + x + '} .i-group input:focus ~ label,.i-group input.used ~ label {color: ' + x + ';} .bar:before,.bar:after {background:' + x + '} .i-group label {color: ' + x + ';} ul.nav > li.active {color:' + x + '} .style-tx {color: ' + x + ';}.style-bg {background:' + x + ';color: white;}@keyframes navgrow {100% {width: 100%;background-color: ' + x + ';}} ul.list li.context {background-color: ' + x + '}');
-//     $('#dynamic-styles').text('.dialog h3 {color: ' + x + '} .i-group input:focus ~ label,.i-group input.used ~ label {color: ' + x + ';} .bar:before,.bar:after {background:' + x + '} .i-group label {color: ' + x + ';} ul.nav > li.active {color:' + x + '} .style-tx {color: ' + x + ';}.style-bg {background:' + x + ';color: white;}@keyframes navgrow {100% {width: 100%;background-color: ' + x + ';}} ul.list li.context {background-color: ' + x + '}');
-// }
-
 // 登录 => 注册
 $('#registerLink').on('click', function() {
     $('#confirmPassGroup').css('display', 'block');
@@ -485,25 +408,6 @@ function closeModal() {
 
     $('#contact-modal').off('click', '.btn.save');
 
-}
-
-// 设置 modal
-function setModal(mode, $ctx) {
-    var $mod = $('#contact-modal');
-    switch (mode) {
-        case 'add':
-            $mod.find('h3').text('Add Contact');
-            break;
-
-        case 'edit':
-            $mod.find('h3').text('Edit Contact');
-            $mod.find('#new-user').val($ctx.text()).addClass('used');
-            break;
-    }
-
-    $mod.fadeIn();
-    $('.overlay').addClass('add');
-    $mod.find('#new-user').focus();
 }
 
 // 设置显示页面
@@ -548,14 +452,8 @@ $('#username').on('blur', function () {
 
 });
 
-
-
 // 聊天界面
 $('.list-text > ul > li').on('click', function () {
-    // $('ul.chat > li').eq(1).html('<img src="'
-    //     + $(this).find('img').prop('src') + '"><div class="message"><p>'
-    //     + $(this).find('.txt').text() + '</p></div>');
-
     // timeout just for eyecandy...
     setTimeout(function () {
         $('.shown').removeClass('shown');
@@ -568,10 +466,6 @@ $('.list-text > ul > li').on('click', function () {
 });
 
 $('.list-account > ul > li').on('click', function () {
-    // $('ul.chat > li').eq(1).html('<img src="'
-    //     + $(this).find('img').prop('src') + '"><div class="message"><p>'
-    //     + $(this).find('.txt').text() + '</p></div>');
-
     // timeout just for eyecandy...
     setTimeout(function () {
         $('.shown').removeClass('shown');
@@ -597,9 +491,9 @@ $('.list-account > .list ').on('click', 'i', function (event) {
 
         $(this).parent().addClass('active');
 
-        var $TARGET = $(this).parent();
+        let $TARGET = $(this).parent();
         if (!$(this).parent().next().hasClass('context')) {
-            var $ctx = $('<li class="context"><i class="mdi mdi-pencil"></i><i class="mdi mdi-delete"></i></li>');
+            let $ctx = $('<li class="context"><i class="mdi mdi-pencil"></i><i class="mdi mdi-delete"></i></li>');
 
             $ctx.on('click', '.mdi-pencil', function () {
                 setModal('edit', $TARGET);
@@ -669,9 +563,9 @@ $('#head .mdi-chevron-down').on('click', function () {
 
 // 搜索
 $('.search-filter').on('keyup', function () {
-    var filter = $(this).val();
+    let filter = $(this).val();
     $(GLOBALSTATE.route + ' .list > li').filter(function () {
-        var regex = new RegExp(filter, 'ig');
+        let regex = new RegExp(filter, 'ig');
 
         if (regex.test($(this).text())) {
             $(this).show();
@@ -680,6 +574,31 @@ $('.search-filter').on('keyup', function () {
         }
     });
 });
+
+$('input').blur(function () {
+    if ($(this).val() !== '') {
+        $(this).addClass('used');
+    }
+});
+
+// 设置 modal
+function setModal(mode, $ctx) {
+    let $mod = $('#contact-modal');
+    switch (mode) {
+        case 'add':
+            $mod.find('h3').text('Add Contact');
+            break;
+
+        case 'edit':
+            $mod.find('h3').text('Edit Contact');
+            $mod.find('#new-user').val($ctx.text()).addClass('used');
+            break;
+    }
+
+    $mod.fadeIn();
+    $('.overlay').addClass('add');
+    $mod.find('#new-user').focus();
+}
 
 // modal 取消按钮
 $('#contact-modal').on('click', '.btn.cancel', function () {
@@ -709,12 +628,11 @@ $('#add-contact-floater').on('click', function () {
         $(this).removeClass('active');
 
     } else {
-
         $(this).addClass('active');
         setModal('add');
         $('#contact-modal').one('click', '.btn.save', function () {
             $('.list-account > .list').prepend(
-                '<li><img src="http://lorempixel.com/100/100/people/1/"><span class="name">'
+                '<li><img src=""><span class="name">'
                 + $('#new-user').val() + '</span><i class="mdi mdi-menu-down"></i></li>');
             closeModal();
         });
