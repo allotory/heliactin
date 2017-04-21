@@ -1,27 +1,27 @@
 {
-  "name": "IM",
-  "version": "0.0.1",
-  "description": "im",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  },
-  "keywords": [
-    "im",
-    "websocket"
-  ],
-  "author": "ellery",
-  "license": "MIT",
-  "dependencies": {
-    "koa": "2.0.0",
-    "koa-router": "7.0.0",
-    "koa-bodyparser": "3.2.0",
-    "nunjucks": "2.4.2",
-    "mime": "1.3.4",
-    "mz": "2.4.0",
-    "socket.io": "1.7.3",
-    "sequelize": "3.24.1",
-    "mysql": "2.11.1",
-    "jssha": "2.2.0"
-  }
+    "name": "IM",
+    "version": "0.0.1",
+    "description": "im",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "keywords": [
+        "im",
+        "websocket"
+    ],
+    "author": "ellery",
+    "license": "MIT",
+    "dependencies": {
+        "koa": "2.0.0",
+        "koa-router": "7.0.0",
+        "koa-bodyparser": "3.2.0",
+        "nunjucks": "2.4.2",
+        "mime": "1.3.4",
+        "mz": "2.4.0",
+        "socket.io": "1.7.3",
+        "sequelize": "3.24.1",
+        "mysql": "2.11.1",
+        "jssha": "2.2.0"
+    }
 }

@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/heliactin.iml" filepath="$PROJECT_DIR$/.idea/heliactin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/imclient/imclient.iml" filepath="$PROJECT_DIR$/imclient/imclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/imweb/imweb.iml" filepath="$PROJECT_DIR$/imweb/imweb.iml" />
     </modules>
   </component>
 </project>

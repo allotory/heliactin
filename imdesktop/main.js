@@ -2,6 +2,7 @@
  * main js
  * Created by Ellery on 2017/3/10.
  */
+'use strict';
 
 const {app, BrowserWindow} = require('electron');
 const path = require('path');
@@ -9,18 +10,24 @@ const url = require('url');
 
 // 保持一个对于 window 对象的全局引用，如果你不这样做，
 // 当 JavaScript 对象被垃圾回收， window 会被自动地关闭
-let win
+let win;
 
-function createWindow () {
+function createWindow() {
     // 创建浏览器窗口。
-    win = new BrowserWindow({width: 400, height: 635, frame: false, resizable: false});
+    win = new BrowserWindow({
+        width: 400,
+        height: 635,
+        frame: false,
+        resizable: false
+    });
 
     // 加载应用的 index.html。
-    win.loadURL(url.format({
-        pathname: path.join(__dirname, 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }))
+    // win.loadURL(url.format({
+    //     pathname: path.join(__dirname, 'index.html'),
+    //     protocol: 'file:',
+    //     slashes: true
+    // }));
+    win.loadURL('http://localhost:3000/');
 
     // 打开开发者工具。
     // win.webContents.openDevTools();
@@ -31,7 +38,7 @@ function createWindow () {
         // 通常会把多个 window 对象存放在一个数组里面，
         // 与此同时，你应该删除相应的元素。
         win = null
-    })
+    });
 }
 
 // Electron 会在初始化后并准备

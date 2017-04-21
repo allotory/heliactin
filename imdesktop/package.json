@@ -1,0 +1,14 @@
+{
+    "name": "IM",
+    "version": "0.0.1",
+    "description": "IM desktop version",
+    "main": "main.js",
+    "scripts": {
+        "start": "node main.js"
+    },
+    "author": "ellery",
+    "license": "MIT",
+    "dependencies": {
+        "electron": "1.3.15"
+    }
+}

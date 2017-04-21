@@ -254,18 +254,21 @@ canvas {
     padding: 17px 0 0 25px;
     z-index: 90;
     transition: all 0.333s ease-in-out;
+    -webkit-app-region: drag;
 }
 
 #head .mdi-close {
     margin: 0 15px 0 auto;
     font-size: 1.5em;
     cursor: pointer;
+    -webkit-app-region: no-drag;
 }
 
 #head .mdi-arrow-right {
     margin: 0 15px 0 auto;
     font-size: 1.5em;
     cursor: pointer;
+    -webkit-app-region: no-drag;
 }
 
 #head .mdi-menu,
@@ -274,6 +277,7 @@ canvas {
     color: white;
     margin-right: 12px;
     cursor: pointer;
+    -webkit-app-region: no-drag;
 }
 
 #head .mdi-fullscreen,
@@ -282,6 +286,7 @@ canvas {
     color: white;
     margin-right: 5px;
     cursor: pointer;
+    -webkit-app-region: no-drag;
 }
 
 #head h1 {
@@ -289,6 +294,7 @@ canvas {
     font-size: 1em;
     color: white;
     font-weight: normal;
+    -webkit-app-region: no-drag;
 }
 
 #content {
