@@ -36,4 +36,4 @@ or
 
 ## License
 
-The MIT License.
+The GPL3.0 License.
